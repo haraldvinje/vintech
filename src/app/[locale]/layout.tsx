@@ -1,6 +1,9 @@
 import "@/app/globals.css";
 import type { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { GoogleTagManager } from '@next/third-parties/google'
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
@@ -54,6 +57,7 @@ export default async function LocaleLayout({
 
   return (
     <html suppressHydrationWarning lang="nb">
+      <GoogleTagManager gtmId="G-BLPS4Q0W19" />
       <body className="antialiased">
         <ThemeProvider
           attribute="class"
@@ -66,6 +70,8 @@ export default async function LocaleLayout({
             <CookieBanner />
           </NextIntlClientProvider>
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
