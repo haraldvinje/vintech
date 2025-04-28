@@ -20,7 +20,7 @@ export async function generateMetadata({
     notFound();
   }
 
-  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const t = await getTranslations("Metadata");
 
   return {
     title: t("title"),

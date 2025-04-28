@@ -42,7 +42,7 @@ export default function Navbar() {
     >
       <div className="container flex h-full w-full items-center m-auto justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="" className="flex items-center gap-2">
             <span className="font-bold text-xl mx-2">{t("brand")}</span>
           </Link>
         </div>
