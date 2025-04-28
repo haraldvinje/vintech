@@ -1,0 +1,102 @@
+{
+  "Navbar": {
+    "brand": "VinTech",
+    "services": "Tjenester",
+    "about": "Om",
+    "contact": "Kontakt",
+    "toggleMenu": "Vis meny",
+    "closeMenu": "Lukk meny"
+  },
+  "Hero": {
+    "title": "IT-tjenester for din bedrift",
+    "description": "Spesialisert i backend-utvikling, skyløsninger og infrastruktur.",
+    "contact": "Ta kontakt",
+    "explore": "Utforsk tjenester",
+    "imageAlt": "Portrettbilde av Harald Vinje",
+    "imageTitle": "Portrettbilde av Harald Vinje"
+  },
+  "About": {
+    "title": "Om VinTech",
+    "description": "VinTech AS leverer programvareløsninger av høy kvalitet tilpasset din bedrifts behov.",
+    "approach": {
+      "title": "Tilnærming",
+      "content": "Selv om jeg er lidenskapelig opptatt av teknologi og streber etter å holde meg oppdatert på de nyeste trendene, tror jeg på en tilnærming der forretningsmålet er hovedfokus. Jeg jobber tett med kunder for å forstå deres unike utfordringer og mål, og sikrer at løsningene jeg leverer ikke bare er teknisk solide, men også i tråd med virksomhetens mål og ambisjoner."
+    },
+    "values": {
+      "title": "Verdier",
+      "content": "Eierskap, åpenhet og tilpasningsevne er kjerneverdiene som veileder mitt arbeid. Jeg tar eierskap til arbeidet mitt og er åpen om prosessen, utfordringene og fremgangen. Jeg tror på å være tilpasningsdyktig til endrede krav og tilbakemeldinger, og sikrer at løsningene jeg leverer er fleksible og kan utvikle seg med virksomhetens behov."
+    },
+    "expertise": {
+      "title": "Kompetanse",
+      "content": "Min hovedinteresse og ekspertise ligger i backend, skyutvikling og programvareinfrastruktur, men jeg har omfattende erfaring med et bredt spekter av teknologier, rammeverk og metodikker som spenner over alle aspekter av programvareutvikling. Språk, rammeverk og verktøy inkluderer, men er ikke begrenset til, TypeScript, React, Python, Java, Kotlin, AWS, Azure og Terraform. Ikke nøl med å ta kontakt for en mer komplett CV!"
+    },
+    "logoAlt": "VinTech Logo",
+    "logoTitle": "VinTech Logo",
+    "techsAlt": "Teknologier",
+    "techsTitle": "Teknologier"
+  },
+  "Services": {
+    "title": "Tjenester",
+    "description": "Ting jeg kan hjelpe deg med",
+    "items": {
+      "development": {
+        "title": "Full-Stack Utvikling",
+        "description": "Tilpassede nettapplikasjoner, responsive nettsider og sanntidssystemer designet og bygget med moderne teknologier og beste praksis."
+      },
+      "cloud": {
+        "title": "Skyutvikling & Migrering",
+        "description": "Utvikling av skybaserte løsninger, sømløs migrering fra lokale systemer til skyen, og optimalisering av skyressurser for bedre ytelse og reduserte kostnader."
+      },
+      "strategy": {
+        "title": "IT-strategi & Arbeidsflyt",
+        "description": "Utvikling av omfattende IT-strategier, implementering av effektive utviklerrutiner, og etablering av moderne DevOps-praksis."
+      },
+      "machineLearning": {
+        "title": "Maskinlæring & AI",
+        "description": "Implementering av maskinlæringsmodeller og AI-løsninger for å optimalisere prosesser, forbedre beslutningstaking og drive innovasjon."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Ta Kontakt",
+    "description": "Klar til å diskutere dine IT-behov? Kontakt meg i dag for en uforpliktende prat!",
+    "email": {
+      "label": "E-post",
+      "value": "contact@vintech.no"
+    },
+    "phone": {
+      "label": "Telefon",
+      "value": "+47 123 45 678"
+    },
+    "location": {
+      "label": "Sted",
+      "value": "Oslo, Norge"
+    },
+    "form": {
+      "name": "Navn",
+      "email": "E-post",
+      "subject": "Emne",
+      "message": "Hvordan kan jeg hjelpe deg?",
+      "submit": "Send Melding"
+    }
+  },
+  "Footer": {
+    "company": {
+      "name": "VinTech AS",
+      "description": "VinTech AS er et norsk IT-konsulentselskap som spesialiserer seg på tekniske løsninger av høy kvalitet tilpasset din bedrifts behov."
+    },
+    "quickLinks": {
+      "title": "Hurtiglenker",
+      "services": "Tjenester",
+      "about": "Om",
+      "contact": "Kontakt"
+    },
+    "connect": {
+      "title": "Følg",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "email": "E-post"
+    },
+    "copyright": "© {year} VinTech AS. Alle rettigheter forbeholdt."
+  }
+}

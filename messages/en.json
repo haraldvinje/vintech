@@ -1,0 +1,103 @@
+{
+  "Navbar": {
+    "brand": "VinTech",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "toggleMenu": "Toggle menu",
+    "closeMenu": "Close menu"
+  },
+  "Hero": {
+    "title": "IT services for Your Business",
+    "description": "Specialized in backend development, cloud solutions and infrastructure.",
+    "contact": "Get in Touch",
+    "explore": "Explore services",
+    "imageAlt": "Portrait of Harald Vinje",
+    "imageTitle": "Portrait of Harald Vinje"
+  },
+  "About": {
+    "title": "About VinTech",
+    "description": "VinTech AS delivers high quality software solutions tailored to your business needs.",
+    "approach": {
+      "title": "Approach",
+      "content": "While I am passionate about technology and strive try to stay on top of the latest trends, I believe in an approach where the business objective is the main focus. I work closely with clients to understand their unique challenges and goals, ensuring that the solutions I provide are not only technically sound, but also aligned with the goals and objectives of the business."
+    },
+    "values": {
+      "title": "Values",
+      "content": "Ownership, transparency and adaptiveness are the core values that guide my work. I take ownership of my work and am transparent about the process, challenges, and progress. I believe in being adaptable to changing requirements and feedback, ensuring that the solutions I provide are flexible and can evolve with the needs of the business."
+    },
+    "expertise": {
+      "title": "Expertise",
+      "content": "While my main interest and expertise lies in backend, cloud development and software infrastructure, I have extensive experience in a wide range of technologies, frameworks and methodologies spanning all aspects of the software development lifecycle. Languages, frameworks, and tools include but are not limited to TypeScript, React, Python, Java, Kotlin, AWS, Azure and Terraform. Do not hesitate to contact for a more complete resume!"
+    },
+    "logoAlt": "VinTech Logo",
+    "logoTitle": "VinTech Logo",
+    "techsAlt": "Technologies",
+    "techsTitle": "Technologies"
+  },
+  "Services": {
+    "title": "Services",
+    "description": "Areas where I can help you",
+    "items": {
+      "development": {
+        "title": "Full-Stack Development",
+        "description": "Custom web applications, responsive websites, and real-time systems designed and built with modern technologies and best practices."
+      },
+      "cloud": {
+        "title": "Cloud Development & Migration",
+        "description": "Development of cloud-based solutions, seamless migration from on-premises to cloud, and optimization of cloud resources for better performance and reduced costs."
+      },
+      "strategy": {
+        "title": "IT Strategy & Workflows",
+        "description": "Development of comprehensive IT strategies, implementation of efficient developer workflows, and establishment of modern DevOps practices."
+      },
+      "machineLearning": {
+        "title": "Machine Learning & AI",
+        "description": "Implementation of machine learning models and AI solutions to optimize processes, enhance decision-making, and drive innovation."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Get in Touch",
+    "description": "Ready to discuss your IT needs? Contact me today for a consultation.",
+    "email": {
+      "label": "Email",
+      "value": "contact@vintech.no"
+    },
+    "phone": {
+      "label": "Phone",
+      "value": "+47 123 45 678"
+    },
+    "location": {
+      "label": "Location",
+      "value": "Oslo, Norway"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "How can I help you?",
+      "submit": "Send Message"
+    }
+  },
+
+  "Footer": {
+    "company": {
+      "name": "VinTech AS",
+      "description": "VinTech AS is a Norwegian technology company based in Norway specializing in high-quality software solutions tailored to your business needs."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "connect": {
+      "title": "Connect",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "email": "Email"
+    },
+    "copyright": "© {year} VinTech AS. All rights reserved."
+  }
+}
