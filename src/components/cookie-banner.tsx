@@ -2,8 +2,8 @@
 
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function CookieBanner() {
   const t = useTranslations("Components.CookieBanner");

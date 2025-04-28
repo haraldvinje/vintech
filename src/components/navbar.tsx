@@ -1,12 +1,12 @@
 "use client";
 
-import LocaleSwitcher from "@/components/locale-switcher";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ThemeSwitcher } from "@/components/theme-switcher";
+import LocaleSwitcher from "@/components/locale-switcher";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

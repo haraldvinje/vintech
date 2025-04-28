@@ -1,6 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function About() {
   const t = useTranslations("About");

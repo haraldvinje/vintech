@@ -1,10 +1,10 @@
-import { routing } from "@/i18n/routing";
+import "@/app/globals.css";
 import type { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
-import "../globals.css";
+import { routing } from "@/i18n/routing";
 import CookieBanner from "@/components/cookie-banner";
 
 export async function generateMetadata({
@@ -31,7 +31,7 @@ export async function generateMetadata({
       locale,
       images: [
         {
-          url: new URL("/og-image.png", "https://vintech.no").toString(),
+          url: new URL("/logo-light.png", "https://vintech.no").toString(),
           width: 1200,
           height: 630,
         },

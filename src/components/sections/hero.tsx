@@ -1,8 +1,8 @@
-import harald from "@/../public/harald.png";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import harald from "@/../public/harald.png";
 
 export default function Hero() {
   const t = useTranslations("Hero");

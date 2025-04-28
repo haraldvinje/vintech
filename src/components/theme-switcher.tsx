@@ -2,9 +2,9 @@
 
 import { useTheme } from "next-themes";
 
-import { Switch } from "@/components/ui/switch";
 import { Moon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Switch } from "@/components/ui/switch";
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();

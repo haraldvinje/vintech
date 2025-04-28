@@ -1,5 +1,12 @@
 "use client";
 
+import { Languages } from "lucide-react";
+import { Locale, useLocale, useTranslations } from "next-intl";
+import { useTransition } from "react";
+import { useParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,13 +15,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { routing } from "@/i18n/routing";
-import { Languages } from "lucide-react";
-import { Button } from "./ui/button";
-import { Locale, useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
-import { useTransition } from "react";
-import { useParams } from "next/navigation";
 
 const LOCALE_TO_DISPLAY_NAME: Record<Locale, string> = {
   no: "Norsk",
