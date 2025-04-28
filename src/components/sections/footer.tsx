@@ -52,6 +52,9 @@ export default function Footer() {
             <div className="flex space-x-4">
               <Link
                 href="https://github.com/haraldvinje"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("connect.github")}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Github className="h-5 w-5" />
@@ -59,6 +62,9 @@ export default function Footer() {
               </Link>
               <Link
                 href="https://linkedin.com/in/haraldvinje"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("connect.linkedin")}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
@@ -66,6 +72,9 @@ export default function Footer() {
               </Link>
               <Link
                 href="mailto:contact@vintech.no"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("connect.email")}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Mail className="h-5 w-5" />

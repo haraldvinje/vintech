@@ -1,4 +1,8 @@
 {
+  "Metadata": {
+    "title": "VinTech | Skreddersydde IT-løsninger",
+    "description": "IT konsulenttjenester spesialisert på backend, sky og infrastruktur."
+  },
   "Navbar": {
     "brand": "VinTech",
     "services": "Tjenester",
@@ -62,11 +66,11 @@
     "description": "Klar til å diskutere dine IT-behov? Kontakt meg i dag for en uforpliktende prat!",
     "email": {
       "label": "E-post",
-      "value": "contact@vintech.no"
+      "value": "harald@vintech.no"
     },
     "phone": {
       "label": "Telefon",
-      "value": "+47 123 45 678"
+      "value": "+47 917 62 735"
     },
     "location": {
       "label": "Sted",
@@ -97,6 +101,18 @@
       "linkedin": "LinkedIn",
       "email": "E-post"
     },
-    "copyright": "© {year} VinTech AS. Alle rettigheter forbeholdt."
+    "copyright": "© {year} VinTech AS."
+  },
+  "Components": {
+    "LocaleSwitcher": {
+      "value": "Velg språk"
+    },
+    "CookieBanner": {
+      "title": "Innstillinger for informasjonskapsler",
+      "description": "Vi bruker informasjonskapsler for å analysere nettstedstrafikk og tilpasse innhold. Ved å klikke på 'Godta alle', samtykker du til bruk av informasjonskapsler.",
+      "essentialOnly": "Kun nødvendige",
+      "acceptAll": "Godta alle",
+      "privacyPolicy": "Personvernpolicy"
+    }
   }
 }

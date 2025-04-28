@@ -11,25 +11,26 @@ import {
 import { routing } from "@/i18n/routing";
 import { Languages } from "lucide-react";
 import { Button } from "./ui/button";
-import { useLocale } from "next-intl";
+import { Locale, useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useTransition } from "react";
 import { useParams } from "next/navigation";
 
-const LOCALE_TO_DISPLAY_NAME: Record<string, string> = {
-  nb: "Norsk",
+const LOCALE_TO_DISPLAY_NAME: Record<Locale, string> = {
+  no: "Norsk",
   en: "English",
 };
 
 export default function LocaleSwitcher() {
   const locale = useLocale();
-
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
   const params = useParams();
 
-  const getDisplayName = (locale: string) => {
+  const t = useTranslations("Components.LocaleSwitcher");
+
+  const getDisplayName = (locale: Locale) => {
     return LOCALE_TO_DISPLAY_NAME[locale] || locale;
   };
 
@@ -54,7 +55,7 @@ export default function LocaleSwitcher() {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel className="text-muted-foreground">
-          Choose a language
+          {t("value")}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         {routing.locales.map((l) => (

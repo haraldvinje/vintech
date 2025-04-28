@@ -1,4 +1,8 @@
 {
+  "Metadata": {
+    "title": "VinTech | Tailored IT Solutions",
+    "description": "IT consulting services specialized in backend, cloud and infrastructure."
+  },
   "Navbar": {
     "brand": "VinTech",
     "services": "Services",
@@ -62,11 +66,11 @@
     "description": "Ready to discuss your IT needs? Contact me today for a consultation.",
     "email": {
       "label": "Email",
-      "value": "contact@vintech.no"
+      "value": "harald@vintech.no"
     },
     "phone": {
       "label": "Phone",
-      "value": "+47 123 45 678"
+      "value": "+47 917 62 735"
     },
     "location": {
       "label": "Location",
@@ -98,6 +102,18 @@
       "linkedin": "LinkedIn",
       "email": "Email"
     },
-    "copyright": "© {year} VinTech AS. All rights reserved."
+    "copyright": "© {year} VinTech AS."
+  },
+  "Components": {
+    "LocaleSwitcher": {
+      "value": "Choose a language"
+    },
+    "CookieBanner": {
+      "title": "Cookie Preferences",
+      "description": "We use cookies to enhance your browsing experience and personalize content. By clicking 'Accept all', you consent to our use of cookies.",
+      "essentialOnly": "Essential Only",
+      "acceptAll": "Accept All",
+      "privacyPolicy": "Privacy Policy"
+    }
   }
 }

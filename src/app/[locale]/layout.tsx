@@ -1,15 +1,44 @@
-import type { Metadata } from "next";
-import "../globals.css";
-import { ThemeProvider } from "next-themes";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import type { Metadata } from "next";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { ThemeProvider } from "next-themes";
+import { notFound } from "next/navigation";
+import "../globals.css";
+import CookieBanner from "@/components/cookie-banner";
 
-export const metadata: Metadata = {
-  title: "VinTech AS | Ekspertise innen IT",
-  description:
-    "IT konsulenttjenester speisialisert på backend, sky og infrastruktur.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    metadataBase: new URL("https://vintech.no"),
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: new URL(`/${locale}`, "https://vintech.no"),
+      siteName: "VinTech",
+      locale,
+      images: [
+        {
+          url: new URL("/og-image.png", "https://vintech.no").toString(),
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,
@@ -32,7 +61,10 @@ export default async function LocaleLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            {children}
+            <CookieBanner />
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
