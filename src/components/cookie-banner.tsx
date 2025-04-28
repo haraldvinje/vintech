@@ -19,13 +19,17 @@ export default function CookieBanner() {
   const acceptAll = () => {
     localStorage.setItem("cookie-consent", "full");
     setShowBanner(false);
-    window.gtag("consent", "update", { analytics_storage: "granted" });
+    if (window.gtag) {
+      window.gtag("consent", "update", { analytics_storage: "granted" });
+    }
   };
 
   const essentialOnly = () => {
     localStorage.setItem("cookie-consent", "essential");
     setShowBanner(false);
-    window.gtag("consent", "update", { analytics_storage: "denied" });
+    if (window.gtag) {
+      window.gtag("consent", "update", { analytics_storage: "denied" });
+    }
   };
 
   if (!showBanner) return null;
