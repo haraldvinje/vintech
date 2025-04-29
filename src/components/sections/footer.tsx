@@ -22,7 +22,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#services"
+                  href="/#services"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {t("quickLinks.services")}
@@ -30,7 +30,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#about"
+                  href="/#about"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {t("quickLinks.about")}
@@ -38,7 +38,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#contact"
+                  href="/#contact"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {t("quickLinks.contact")}

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import LocaleSwitcher from "@/components/locale-switcher";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { getScrollbarWidth } from "@/lib/utils";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -25,6 +26,36 @@ export default function Navbar() {
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const scrollbarWidth = getScrollbarWidth();
+    document.documentElement.style.setProperty(
+      "--scrollbar-width",
+      `${scrollbarWidth}px`
+    );
+
+    const isBodyScrollable = () => {
+      if (typeof window !== "undefined") {
+        return document.body.scrollHeight > window.innerHeight;
+      }
+      return false;
+    };
+
+    if (isMenuOpen) {
+      if (isBodyScrollable()) {
+        document.body.style.paddingRight = `var(--scrollbar-width)`;
+      }
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.paddingRight = "";
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.paddingRight = "";
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -113,7 +144,7 @@ export default function Navbar() {
             {t("contact")}
           </Link>
         </nav>
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-2 mx-2">
           <LocaleSwitcher />
           <ThemeSwitcher />
         </div>
@@ -134,7 +165,6 @@ export default function Navbar() {
                 <span className="font-bold text-xl mx-2">{t("brand")}</span>
               </Link>
               <Button
-                className="mr-4"
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMenuOpen(false)}
