@@ -34,13 +34,31 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    
+    setIsMenuOpen(false);
+    
+    setTimeout(() => {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+        
+        window.history.pushState(null, "", `#${targetId}`);
+      }
+    }, 100);
+  };
+
   return (
     <header
       className={`sticky h-16 top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition ${
         hasScrolled ? "shadow-md" : ""
       }`}
     >
-      <div className="container flex h-full w-full items-center m-auto justify-between">
+      <div className="container flex h-full items-center m-auto justify-between">
         <div className="flex items-center gap-2">
           <Link href="" className="flex items-center gap-2">
             <span className="font-bold text-xl mx-2">{t("brand")}</span>
@@ -85,7 +103,7 @@ export default function Navbar() {
           <div className="fixed inset-0 z-[100] bg-background md:hidden">
             <div className="container mx-auto flex h-16 items-center justify-between border-b">
               <Link href="/" className="flex items-center gap-2">
-                <span className="font-verdana font-bold text-xl">{t("brand")}</span>
+                <span className="font-bold text-xl mx-2">{t("brand")}</span>
               </Link>
               <Button
                 variant="ghost"
@@ -102,21 +120,21 @@ export default function Navbar() {
                 <Link
                   href="#services"
                   className="text-xl font-medium hover:underline underline-offset-4"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, "services")}
                 >
                   {t("services")}
                 </Link>
                 <Link
                   href="#about"
                   className="text-xl font-medium hover:underline underline-offset-4"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, "about")}
                 >
                   {t("about")}
                 </Link>
                 <Link
                   href="#contact"
                   className="text-xl font-medium hover:underline underline-offset-4"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, "contact")}
                 >
                   {t("contact")}
                 </Link>

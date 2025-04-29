@@ -81,10 +81,15 @@
       "email": "Email",
       "subject": "Subject",
       "message": "How can I help you?",
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "successTitle": "Message Sent",
+      "successMessage": "Thank you for your message. We'll get back to you soon.",
+      "errorTitle": "Error",
+      "errorMessage": "There was a problem sending your message. Please try again.",
+      "networkError": "Network error. Please check your connection and try again."
     }
   },
-
   "Footer": {
     "company": {
       "name": "VinTech AS",

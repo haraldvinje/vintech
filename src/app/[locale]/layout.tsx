@@ -9,6 +9,7 @@ import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import CookieBanner from "@/components/cookie-banner";
+import { Toaster } from "@/components/ui/sonner";
 
 export async function generateMetadata({
   params,
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
           <NextIntlClientProvider>
             {children}
             <CookieBanner />
+            <Toaster />
           </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />

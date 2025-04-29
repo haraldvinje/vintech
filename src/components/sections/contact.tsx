@@ -2,12 +2,47 @@
 
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useState, FormEvent } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function Contact() {
   const t = useTranslations("Contact");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const formValues = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      });
+
+      await response.json();
+
+      if (response.ok) {
+        toast.success(t("form.successMessage"));
+
+        (e.target as HTMLFormElement).reset();
+      } else {
+        toast.error(t("form.errorMessage"))
+      }
+    } catch {
+      toast.error(t("form.networkError"));
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <section
@@ -50,27 +85,49 @@ export default function Contact() {
             </div>
           </div>
           <div className="space-y-4">
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <Input id="name" placeholder={t("form.name")} />
+                  <Input
+                    name="name"
+                    id="name"
+                    placeholder={t("form.name")}
+                    required
+                    disabled={isSubmitting}
+                  />
                 </div>
                 <div className="space-y-2">
-                  <Input id="email" type="email" placeholder={t("form.email")} />
+                  <Input
+                    name="email"
+                    id="email"
+                    type="email"
+                    placeholder={t("form.email")}
+                    required
+                    disabled={isSubmitting}
+                  />
                 </div>
               </div>
               <div className="space-y-2">
-                <Input id="subject" placeholder={t("form.subject")} />
+                <Input
+                  name="subject"
+                  id="subject"
+                  placeholder={t("form.subject")}
+                  required
+                  disabled={isSubmitting}
+                />
               </div>
               <div className="space-y-2">
                 <Textarea
+                  name="message"
                   className="min-h-[150px]"
                   id="message"
                   placeholder={t("form.message")}
+                  required
+                  disabled={isSubmitting}
                 />
               </div>
-              <Button type="submit" className="w-full">
-                {t("form.submit")}
+              <Button type="submit" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? t("form.sending") : t("form.submit")}
               </Button>
             </form>
           </div>

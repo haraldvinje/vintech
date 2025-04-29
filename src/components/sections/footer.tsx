@@ -71,7 +71,7 @@ export default function Footer() {
                 <span className="sr-only">{t("connect.linkedin")}</span>
               </Link>
               <Link
-                href="mailto:contact@vintech.no"
+                href="mailto:harald@vintech.no"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("connect.email")}

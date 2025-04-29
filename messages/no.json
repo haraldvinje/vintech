@@ -62,7 +62,7 @@
     }
   },
   "Contact": {
-    "title": "Ta Kontakt",
+    "title": "Ta kontakt",
     "description": "Klar til å diskutere dine IT-behov? Kontakt meg i dag for en uforpliktende prat!",
     "email": {
       "label": "E-post",
@@ -81,7 +81,13 @@
       "email": "E-post",
       "subject": "Emne",
       "message": "Hvordan kan jeg hjelpe deg?",
-      "submit": "Send Melding"
+      "submit": "Send Melding",
+      "sending": "Sender...",
+      "successTitle": "Melding Sendt",
+      "successMessage": "Takk for din henvendelse. Vi vil svare deg så snart som mulig.",
+      "errorTitle": "Feil",
+      "errorMessage": "Det oppstod et problem med å sende meldingen din. Vennligst prøv igjen.",
+      "networkError": "Nettverksfeil. Vennligst sjekk tilkoblingen din og prøv igjen."
     }
   },
   "Footer": {

@@ -20,7 +20,7 @@ export default function Hero() {
                 {t("description")}
               </p>
             </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
+            <div className="flex flex-col gap-2 min-[300px]:flex-row">
               <Link href="#contact">
                 <Button size="lg">{t("contact")}</Button>
               </Link>

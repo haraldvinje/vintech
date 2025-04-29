@@ -7,15 +7,15 @@ import Services from "@/components/sections/services";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col">
-        <Navbar />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Hero />
-          <About />
-          <Services />
-          <Contact />
-        </div>
-        <Footer />
+    <main className="min-h-screen flex flex-col mx-auto">
+      <Navbar />
+      <div className="flex-1 flex flex-col mx-auto max-w-7xl">
+        <Hero />
+        <About />
+        <Services />
+        <Contact />
+      </div>
+      <Footer />
     </main>
   );
 }
