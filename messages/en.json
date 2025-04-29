@@ -78,9 +78,21 @@
     },
     "form": {
       "name": "Name",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
       "email": "Email",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your.email@example.com",
       "subject": "Subject",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "What is this regarding?",
       "message": "How can I help you?",
+      "messageLabel": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "requiredFieldsNote": "Required fields",
+      "privacyNoteShort": "By submitting this form, you consent to our processing of your data to respond to your inquiry. See our",
+      "privacyPolicyLink": "Privacy Policy",
+      "privacyPolicyLinkEnd": "for complete details.",
       "submit": "Send Message",
       "sending": "Sending...",
       "successTitle": "Message Sent",
@@ -119,6 +131,99 @@
       "essentialOnly": "Essential Only",
       "acceptAll": "Accept All",
       "privacyPolicy": "Privacy Policy"
+    }
+  },
+  "PrivacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
+    "updateDate": "April 29, 2025",
+    "introduction": {
+      "title": "Introduction",
+      "content": "This Privacy Policy explains how VinTech AS ('we', 'us', or 'our') collects, uses, and shares your personal information when you visit our website or contact us through our forms. We respect your privacy and are committed to protecting your personal data."
+    },
+    "dataCollection": {
+      "title": "Information We Collect",
+      "intro": "We collect different types of information for various purposes to provide and improve our services to you.",
+      "contactForm": {
+        "title": "Contact Form Information",
+        "content": "When you submit a contact form, we collect the following information:",
+        "items": {
+          "name": "Your name",
+          "email": "Your email address",
+          "subject": "The subject of your message",
+          "message": "The content of your message"
+        }
+      },
+      "analytics": {
+        "title": "Usage and Analytics Data",
+        "content": "We use analytics services to help us understand how our website is being used. This data includes:",
+        "items": {
+          "ip": "IP address (anonymized)",
+          "device": "Device type and specifications",
+          "browser": "Browser type and version",
+          "referrer": "Referring website",
+          "duration": "Time spent on the website and pages visited"
+        }
+      }
+    },
+    "dataUse": {
+      "title": "How We Use Your Information",
+      "content": "We use the information we collect for the following purposes:",
+      "items": {
+        "communication": "To respond to your inquiries and contact you regarding services",
+        "improvement": "To improve our website and services based on your feedback and interactions",
+        "analytics": "To analyze usage patterns and optimize user experience"
+      }
+    },
+    "thirdParties": {
+      "title": "Third-Party Service Providers",
+      "intro": "We use the following third-party services to help operate our website and provide our services:",
+      "vercel": {
+        "title": "Vercel (Hosting, Analytics & Speed Insights)",
+        "content": "We use Vercel to host our website and collect analytics data about how our website performs. Vercel Analytics and Speed Insights help us understand performance metrics and usage patterns.",
+        "link": "Vercel Privacy Policy"
+      },
+      "google": {
+        "title": "Google Analytics (via Google Tag Manager)",
+        "content": "We use Google Analytics to understand how visitors interact with our website. This service uses cookies to collect information about your device, browser, IP address (anonymized), and browsing behavior.",
+        "link": "Google Privacy Policy"
+      },
+      "resend": {
+        "title": "Resend (Email Service)",
+        "content": "We use Resend to process and deliver emails sent through our contact form. When you submit a form, your information is transmitted to Resend's servers for email delivery.",
+        "link": "Resend Privacy Policy"
+      }
+    },
+    "cookies": {
+      "title": "Cookies and Tracking",
+      "content": "We use cookies and similar tracking technologies to collect and track information about your browsing activities. Cookies are small text files that are stored on your device. We use the following types of cookies:",
+      "items": {
+        "necessary": "Essential cookies: Required for the website to function properly",
+        "analytics": "Analytics cookies: Help us understand how visitors interact with our website (you can opt out of these)"
+      }
+    },
+    "userRights": {
+      "title": "Your Rights",
+      "content": "Under GDPR and Norwegian privacy law, you have several rights regarding your personal data, including:",
+      "items": {
+        "access": "The right to access your personal information",
+        "rectification": "The right to request correction of inaccurate information",
+        "erasure": "The right to request deletion of your information",
+        "restriction": "The right to restrict processing of your information",
+        "objection": "The right to object to processing of your information"
+      }
+    },
+    "retention": {
+      "title": "Data Retention",
+      "content": "We will retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy. Contact form submissions are typically retained for up to 12 months, unless you request earlier deletion or we have an ongoing business relationship."
+    },
+    "changes": {
+      "title": "Changes to This Privacy Policy",
+      "content": "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last Updated' date."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about this Privacy Policy or our data practices, please contact us."
     }
   }
 }

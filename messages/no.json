@@ -78,9 +78,21 @@
     },
     "form": {
       "name": "Navn",
+      "nameLabel": "Navn",
+      "namePlaceholder": "Ditt navn",
       "email": "E-post",
+      "emailLabel": "E-post",
+      "emailPlaceholder": "din.epost@eksempel.no",
       "subject": "Emne",
-      "message": "Hvordan kan jeg hjelpe deg?",
+      "subjectLabel": "Emne",
+      "subjectPlaceholder": "Hva gjelder henvendelsen?",
+      "message": "Hvordan kan jeg hjelpe?",
+      "messageLabel": "Melding",
+      "messagePlaceholder": "Hvordan kan jeg hjelpe?",
+      "requiredFieldsNote": "Påkrevde felter",
+      "privacyNoteShort": "Ved å sende inn dette skjemaet samtykker du til vår behandling av dine opplysninger for å besvare din henvendelse. Se vår",
+      "privacyPolicyLink": "Personvernerklæring",
+      "privacyPolicyLinkEnd": "for fullstendige detaljer.",
       "submit": "Send Melding",
       "sending": "Sender...",
       "successTitle": "Melding Sendt",
@@ -119,6 +131,99 @@
       "essentialOnly": "Kun nødvendige",
       "acceptAll": "Godta alle",
       "privacyPolicy": "Personvernpolicy"
+    }
+  },
+  "PrivacyPolicy": {
+    "title": "Personvernerklæring",
+    "lastUpdated": "Sist oppdatert",
+    "updateDate": "29. april 2025",
+    "introduction": {
+      "title": "Introduksjon",
+      "content": "Denne personvernerklæringen forklarer hvordan VinTech AS ('vi', 'oss' eller 'vår') samler inn, bruker og deler dine personopplysninger når du besøker vår nettside eller kontakter oss gjennom våre skjemaer. Vi respekterer ditt personvern og er forpliktet til å beskytte dine personopplysninger."
+    },
+    "dataCollection": {
+      "title": "Informasjon vi samler inn",
+      "intro": "Vi samler inn forskjellige typer informasjon for ulike formål for å levere og forbedre våre tjenester til deg.",
+      "contactForm": {
+        "title": "Kontaktskjema-informasjon",
+        "content": "Når du sender inn et kontaktskjema, samler vi inn følgende informasjon:",
+        "items": {
+          "name": "Ditt navn",
+          "email": "Din e-postadresse",
+          "subject": "Emnet for din melding",
+          "message": "Innholdet i din melding"
+        }
+      },
+      "analytics": {
+        "title": "Bruks- og analysedata",
+        "content": "Vi bruker analysetjenester for å hjelpe oss med å forstå hvordan vår nettside blir brukt. Disse dataene inkluderer:",
+        "items": {
+          "ip": "IP-adresse (anonymisert)",
+          "device": "Enhetstype og spesifikasjoner",
+          "browser": "Nettlesertype og versjon",
+          "referrer": "Henvisende nettside",
+          "duration": "Tid brukt på nettstedet og besøkte sider"
+        }
+      }
+    },
+    "dataUse": {
+      "title": "Hvordan vi bruker din informasjon",
+      "content": "Vi bruker informasjonen vi samler inn til følgende formål:",
+      "items": {
+        "communication": "Å svare på dine henvendelser og kontakte deg angående tjenester",
+        "improvement": "Å forbedre vår nettside og tjenester basert på din tilbakemelding og interaksjoner",
+        "analytics": "Å analysere bruksmønstre og optimalisere brukeropplevelsen"
+      }
+    },
+    "thirdParties": {
+      "title": "Tredjepartstjenester",
+      "intro": "Vi bruker følgende tredjepartstjenester for å drive vår nettside og levere våre tjenester:",
+      "vercel": {
+        "title": "Vercel (Hosting, Analytics & Speed Insights)",
+        "content": "Vi bruker Vercel til å være vert for vår nettside og samle analysedata om hvordan nettstedet vårt fungerer. Vercel Analytics og Speed Insights hjelper oss med å forstå ytelsesmålinger og bruksmønstre.",
+        "link": "Vercels personvernerklæring"
+      },
+      "google": {
+        "title": "Google Analytics (via Google Tag Manager)",
+        "content": "Vi bruker Google Analytics for å forstå hvordan besøkende samhandler med nettstedet vårt. Denne tjenesten bruker informasjonskapsler for å samle informasjon om din enhet, nettleser, IP-adresse (anonymisert) og nettlesingsatferd.",
+        "link": "Googles personvernerklæring"
+      },
+      "resend": {
+        "title": "Resend (E-posttjeneste)",
+        "content": "Vi bruker Resend til å behandle og levere e-poster sendt gjennom vårt kontaktskjema. Når du sender inn et skjema, overføres informasjonen din til Resends servere for e-postlevering.",
+        "link": "Resends personvernerklæring"
+      }
+    },
+    "cookies": {
+      "title": "Informasjonskapsler og sporing",
+      "content": "Vi bruker informasjonskapsler og lignende sporingsteknologier for å samle inn og spore informasjon om dine nettlesingsaktiviteter. Informasjonskapsler er små tekstfiler som lagres på din enhet. Vi bruker følgende typer informasjonskapsler:",
+      "items": {
+        "necessary": "Nødvendige informasjonskapsler: Nødvendige for at nettstedet skal fungere riktig",
+        "analytics": "Analytiske informasjonskapsler: Hjelper oss med å forstå hvordan besøkende samhandler med nettstedet vårt (du kan velge å ikke bruke disse)"
+      }
+    },
+    "userRights": {
+      "title": "Dine rettigheter",
+      "content": "Under GDPR og norsk personvernlovgivning har du flere rettigheter knyttet til dine personopplysninger, inkludert:",
+      "items": {
+        "access": "Retten til å få tilgang til dine personopplysninger",
+        "rectification": "Retten til å be om korrigering av unøyaktig informasjon",
+        "erasure": "Retten til å be om sletting av din informasjon",
+        "restriction": "Retten til å begrense behandlingen av din informasjon",
+        "objection": "Retten til å protestere mot behandling av din informasjon"
+      }
+    },
+    "retention": {
+      "title": "Datalagring",
+      "content": "Vi vil beholde dine personopplysninger kun så lenge det er nødvendig for å oppfylle formålene som er beskrevet i denne personvernerklæringen. Kontaktskjemainnsendinger beholdes vanligvis i opp til 12 måneder, med mindre du ber om tidligere sletting eller vi har et pågående forretningsforhold."
+    },
+    "changes": {
+      "title": "Endringer i denne personvernerklæringen",
+      "content": "Vi kan oppdatere vår personvernerklæring fra tid til annen. Vi vil varsle deg om eventuelle endringer ved å publisere den nye personvernerklæringen på denne siden og oppdatere datoen for 'Sist oppdatert'."
+    },
+    "contact": {
+      "title": "Kontakt oss",
+      "content": "Hvis du har spørsmål om denne personvernerklæringen eller våre databehandlingspraksiser, vennligst kontakt oss."
     }
   }
 }

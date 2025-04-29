@@ -1,23 +1,23 @@
-import Link from "next/link";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
   const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="w-full py-8 bg-background border-t">
-      <div className="container px-4 md:px-6 mx-auto">
+      <div className="container mx-auto w-4/5 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="space-y-3">
+          <div className="space-y-3 gap-2">
             <h3 className="text-lg font-bold">{t("company.name")}</h3>
             <p className="text-sm text-muted-foreground w-3/4">
               {t("company.description")}
             </p>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3 mx-auto">
             <h3 className="text-lg font-bold">{t("quickLinks.title")}</h3>
             <ul className="space-y-2">
               <li>
@@ -47,7 +47,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3 ml-auto">
             <h3 className="text-lg font-bold">{t("connect.title")}</h3>
             <div className="flex space-x-4">
               <Link
@@ -83,10 +83,14 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
-        <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
-          <p>{t("copyright", { year: currentYear })}</p>
-        </div>
+      </div>
+      <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
+        <p>
+          {t("copyright", { year: currentYear })}{" "}
+          <Link href="/privacy-policy" className="hover:underline">
+            Privacy Policy
+          </Link>
+        </p>
       </div>
     </footer>
   );

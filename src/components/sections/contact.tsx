@@ -7,6 +7,8 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Link } from "@/i18n/navigation";
 
 export default function Contact() {
   const t = useTranslations("Contact");
@@ -35,7 +37,7 @@ export default function Contact() {
 
         (e.target as HTMLFormElement).reset();
       } else {
-        toast.error(t("form.errorMessage"))
+        toast.error(t("form.errorMessage"));
       }
     } catch {
       toast.error(t("form.networkError"));
@@ -88,48 +90,86 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
+                  <Label htmlFor="name">
+                    {t("form.nameLabel")}{" "}
+                    <span className="text-red-500">*</span>
+                  </Label>
                   <Input
                     name="name"
                     id="name"
-                    placeholder={t("form.name")}
+                    placeholder={t("form.namePlaceholder")}
                     required
                     disabled={isSubmitting}
+                    autoComplete="name"
                   />
                 </div>
                 <div className="space-y-2">
+                  <Label htmlFor="email">
+                    {t("form.emailLabel")}{" "}
+                    <span className="text-red-500">*</span>
+                  </Label>
                   <Input
                     name="email"
                     id="email"
                     type="email"
-                    placeholder={t("form.email")}
+                    placeholder={t("form.emailPlaceholder")}
                     required
                     disabled={isSubmitting}
+                    autoComplete="email"
                   />
                 </div>
               </div>
               <div className="space-y-2">
+                <Label htmlFor="subject">
+                  {t("form.subjectLabel")}{" "}
+                  <span className="text-red-500">*</span>
+                </Label>
                 <Input
                   name="subject"
                   id="subject"
-                  placeholder={t("form.subject")}
+                  placeholder={t("form.subjectPlaceholder")}
                   required
                   disabled={isSubmitting}
+                  autoComplete="off"
                 />
               </div>
               <div className="space-y-2">
+                <Label htmlFor="message">
+                  {t("form.messageLabel")}{" "}
+                  <span className="text-red-500">*</span>
+                </Label>
                 <Textarea
                   name="message"
                   className="min-h-[150px]"
                   id="message"
-                  placeholder={t("form.message")}
+                  placeholder={t("form.messagePlaceholder")}
                   required
                   disabled={isSubmitting}
+                  autoComplete="off"
                 />
               </div>
+
+              <div className="text-xs text-muted-foreground mb-2">
+                <span className="text-red-500">*</span>{" "}
+                {t("form.requiredFieldsNote")}
+              </div>
+
               <Button type="submit" className="w-full" disabled={isSubmitting}>
                 {isSubmitting ? t("form.sending") : t("form.submit")}
               </Button>
             </form>
+            <div className="mt-4 text-xs text-muted-foreground">
+              <p>
+                {t("form.privacyNoteShort")}{" "}
+                <Link
+                  href="/privacy-policy"
+                  className="underline hover:text-primary"
+                >
+                  {t("form.privacyPolicyLink")}
+                </Link>{" "}
+                {t("form.privacyPolicyLinkEnd")}
+              </p>
+            </div>
           </div>
         </div>
       </div>

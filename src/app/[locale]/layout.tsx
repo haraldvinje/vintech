@@ -1,15 +1,17 @@
 import "@/app/globals.css";
 import type { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { GoogleTagManager } from '@next/third-parties/google'
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import CookieBanner from "@/components/cookie-banner";
 import { Toaster } from "@/components/ui/sonner";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/sections/footer";
 
 export async function generateMetadata({
   params,
@@ -67,7 +69,11 @@ export default async function LocaleLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider>
-            {children}
+            <main className="min-h-screen flex flex-col mx-auto">
+              <Navbar />
+              {children}
+            </main>
+            <Footer />
             <CookieBanner />
             <Toaster />
           </NextIntlClientProvider>
