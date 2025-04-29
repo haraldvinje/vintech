@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin, Book } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="space-y-3 mx-auto">
+          <div className="space-y-3 md:mx-auto">
             <h3 className="text-lg font-bold">{t("quickLinks.title")}</h3>
             <ul className="space-y-2">
               <li>
@@ -47,7 +47,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-3 ml-auto">
+          <div className="space-y-3 md:ml-auto">
             <h3 className="text-lg font-bold">{t("connect.title")}</h3>
             <div className="flex space-x-4">
               <Link
@@ -80,6 +80,16 @@ export default function Footer() {
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">{t("connect.email")}</span>
               </Link>
+              <Link
+                href="https://tekblogg.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("connect.blog")}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Book className="h-5 w-5" />
+                <span className="sr-only">{t("connect.blog")}</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -88,7 +98,7 @@ export default function Footer() {
         <p>
           {t("copyright", { year: currentYear })}{" "}
           <Link href="/privacy-policy" className="hover:underline">
-            Privacy Policy
+            {t("privacyPolicyLink")}
           </Link>
         </p>
       </div>
