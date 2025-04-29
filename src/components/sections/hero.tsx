@@ -42,7 +42,6 @@ export default function Hero() {
                 alt={t("imageAlt")}
                 title={t("imageTitle")}
                 priority={true}
-                fill={true}
                 sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
                 style={{
                   objectFit: "cover",
