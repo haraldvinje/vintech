@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 
 export default function Hero() {
   const t = useTranslations("Hero");
-  
+
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-background dark:bg-background">
       <div className="container px-4 md:px-6">
@@ -41,6 +41,12 @@ export default function Hero() {
                 blurDataURL={harald.blurDataURL}
                 alt={t("imageAlt")}
                 title={t("imageTitle")}
+                priority={true}
+                fill={true}
+                sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
+                style={{
+                  objectFit: "cover",
+                }}
               />
             </div>
           </div>

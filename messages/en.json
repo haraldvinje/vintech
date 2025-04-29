@@ -125,7 +125,15 @@
   },
   "Components": {
     "LocaleSwitcher": {
-      "value": "Choose a language"
+      "value": "Choose a language",
+      "switchLanguage": "Change language"
+    },
+    "ThemeSwitcher": {
+      "switchTheme": "Toggle dark mode",
+      "theme": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
     },
     "CookieBanner": {
       "title": "Cookie Preferences",

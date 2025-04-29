@@ -4,11 +4,14 @@ import { useTheme } from "next-themes";
 
 import { Moon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Switch } from "@/components/ui/switch";
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
+  const t = useTranslations("Components.ThemeSwitcher");
 
   useEffect(() => {
     setMounted(true);
@@ -27,6 +30,7 @@ export function ThemeSwitcher() {
       <Moon className="mr-2 h-4 w-4 text-muted-foreground" />
       <Switch
         id="theme-switcher"
+        aria-label={t("switchTheme")}
         checked={theme === "dark"}
         onCheckedChange={(checked) => {
           setTheme(checked ? "dark" : "light");

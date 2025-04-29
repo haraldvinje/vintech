@@ -125,7 +125,15 @@
   },
   "Components": {
     "LocaleSwitcher": {
-      "value": "Velg språk"
+      "value": "Velg språk",
+      "switchLanguage": "Bytt språk"
+    },
+    "ThemeSwitcher": {
+      "switchTheme": "Slå på/av mørk modus",
+      "theme": "Tema",
+      "light": "Lys",
+      "dark": "Mørk",
+      "system": "System"
     },
     "CookieBanner": {
       "title": "Innstillinger for informasjonskapsler",

@@ -51,22 +51,24 @@ export default function About() {
           <div className="flex flex-col items-center">
             <div className="relative h-[300px] w-[300px] sm:h-[400px] sm:w-[400px] lg:h-[450px] lg:w-[450px]">
               <Image
-                src="/logo.svg?height=500&width=500"
+                src="/logo.svg"
                 alt={t("logoAlt")}
                 title={t("logoTitle")}
                 fill
                 className="object-contain"
-                priority
+                sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 450px"
+                loading="lazy"
               />
             </div>
             <div className="relative h-[300px] w-[300px] sm:h-[400px] sm:w-[400px] lg:h-[450px] lg:w-[450px]">
               <Image
-                src="/techs.svg?height=500&width=500"
+                src="/techs.svg"
                 alt={t("techsAlt")}
                 title={t("techsTitle")}
                 fill
                 className="object-contain"
-                priority
+                sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 450px"
+                loading="lazy"
               />
             </div>
           </div>

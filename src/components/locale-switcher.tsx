@@ -49,7 +49,12 @@ export default function LocaleSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" disabled={isPending} size="icon">
+        <Button
+          variant="ghost"
+          disabled={isPending}
+          size="icon"
+          aria-label={t("switchLanguage")}
+        >
           <Languages className="mr-2 h-4 w-4 text-muted-foreground" />
         </Button>
       </DropdownMenuTrigger>
