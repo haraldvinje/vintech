@@ -111,6 +111,11 @@ export default function Navbar() {
     }
   };
 
+  const desktopLinkStyle =
+    "text-sm font-medium hover:underline underline-offset-4";
+  const mobileLinkStyle =
+    "text-xl font-medium hover:underline underline-offset-4";
+
   return (
     <header
       className={`sticky h-16 top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition ${
@@ -118,95 +123,89 @@ export default function Navbar() {
       }`}
     >
       <div className="container flex h-full items-center m-auto max-w-7xl justify-between">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 w-1/4">
           <Link href="/" className="flex items-center gap-2">
             <span className="font-bold text-xl mx-2">{t("brand")}</span>
           </Link>
         </div>
 
-        <div className="md:hidden flex items-center gap-2">
+        <div className="md:hidden flex items-center justify-center gap-2 w-1/2">
           <LocaleSwitcher />
           <ThemeSwitcher />
         </div>
 
-        <nav className="hidden md:flex items-center gap-6">
-          <Link
-            href="/#about"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
+        <nav className="hidden md:flex items-center gap-6 w-1/2 justify-center">
+          <Link href="/#about" className={desktopLinkStyle}>
             {t("about")}
           </Link>
-          <Link
-            href="/#services"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
+          <Link href="/#services" className={desktopLinkStyle}>
             {t("services")}
           </Link>
-          <Link
-            href="/#contact"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
+          <Link href="/#contact" className={desktopLinkStyle}>
             {t("contact")}
           </Link>
         </nav>
-        <div className="hidden md:flex items-center gap-2 mx-2">
+        <div className="hidden md:flex items-center gap-2 mx-2 w-1/4 justify-end">
           <LocaleSwitcher />
           <ThemeSwitcher />
         </div>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setIsMenuOpen(true)}
-        >
-          <Menu className="h-6 w-6" />
-          <span className="sr-only">{t("toggleMenu")}</span>
-        </Button>
+        <div className="flex md:hidden items-center gap-2 w-1/4 justify-end">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMenuOpen(true)}
+          >
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">{t("toggleMenu")}</span>
+          </Button>
+        </div>
 
         {isMenuOpen && (
           <div className="fixed inset-0 z-[100] bg-background md:hidden">
             <div className="mx-auto w-full flex h-16 items-center justify-between">
               <Link
                 href="/"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 w-1/4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <span className="font-bold text-xl mx-2">{t("brand")}</span>
               </Link>
 
-              <div className="md:hidden flex items-center gap-2">
+              <div className="md:hidden flex items-center justify-center gap-2 w-1/2">
                 <LocaleSwitcher />
                 <ThemeSwitcher />
               </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <X className="h-6 w-6" />
-                <span className="sr-only">{t("closeMenu")}</span>
-              </Button>
+              <div className="w-1/4 flex justify-end">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <X className="h-6 w-6" />
+                  <span className="sr-only">{t("closeMenu")}</span>
+                </Button>
+              </div>
             </div>
 
             <div className="w-full bg-background mx-auto px-4 py-8 flex flex-col h-[calc(100vh-4rem)]">
               <nav className="flex flex-col gap-6 items-center justify-center mb-8">
                 <Link
                   href="/#services"
-                  className="text-xl font-medium hover:underline underline-offset-4"
+                  className={mobileLinkStyle}
                   onClick={(e) => handleNavClick(e, "services")}
                 >
                   {t("services")}
                 </Link>
                 <Link
                   href="/#about"
-                  className="text-xl font-medium hover:underline underline-offset-4"
+                  className={mobileLinkStyle}
                   onClick={(e) => handleNavClick(e, "about")}
                 >
                   {t("about")}
                 </Link>
                 <Link
                   href="/#contact"
-                  className="text-xl font-medium hover:underline underline-offset-4"
+                  className={mobileLinkStyle}
                   onClick={(e) => handleNavClick(e, "contact")}
                 >
                   {t("contact")}
