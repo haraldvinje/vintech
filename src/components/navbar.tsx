@@ -124,6 +124,11 @@ export default function Navbar() {
           </Link>
         </div>
 
+        <div className="md:hidden flex items-center gap-2">
+          <LocaleSwitcher />
+          <ThemeSwitcher />
+        </div>
+
         <nav className="hidden md:flex items-center gap-6">
           <Link
             href="/#about"
@@ -160,10 +165,19 @@ export default function Navbar() {
 
         {isMenuOpen && (
           <div className="fixed inset-0 z-[100] bg-background md:hidden">
-            <div className="mx-auto w-full flex h-16 items-center justify-between border-b">
-              <Link href="/" className="flex items-center gap-2">
+            <div className="mx-auto w-full flex h-16 items-center justify-between">
+              <Link
+                href="/"
+                className="flex items-center gap-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 <span className="font-bold text-xl mx-2">{t("brand")}</span>
               </Link>
+
+              <div className="md:hidden flex items-center gap-2">
+                <LocaleSwitcher />
+                <ThemeSwitcher />
+              </div>
               <Button
                 variant="ghost"
                 size="icon"
@@ -198,11 +212,6 @@ export default function Navbar() {
                   {t("contact")}
                 </Link>
               </nav>
-
-              <div className="flex items-center justify-center gap-6 mt-auto mb-8">
-                <LocaleSwitcher />
-                <ThemeSwitcher />
-              </div>
             </div>
           </div>
         )}
