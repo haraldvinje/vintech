@@ -55,7 +55,7 @@ export default function LocaleSwitcher() {
           size="icon"
           aria-label={t("switchLanguage")}
         >
-          <Languages className="mr-2 h-4 w-4 text-muted-foreground" />
+          <Languages className="mx-2 h-4 w-4 text-muted-foreground" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
