@@ -59,7 +59,7 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html suppressHydrationWarning lang="nb">
+    <html suppressHydrationWarning lang={locale}>
       <GoogleTagManager gtmId="GTM-KGSWFGCP" />
       <body className="antialiased">
         <ThemeProvider
