@@ -1,7 +1,9 @@
 {
   "Metadata": {
     "title": "VinTech | Tailored IT Solutions",
-    "description": "IT consulting services specialized in backend, cloud and infrastructure. Owner and operated by Harald Vinje."
+    "description": "IT consulting services specialized in backend, cloud and infrastructure. Owner and operated by Harald Vinje.",
+    "privacyPolicyPageTitle": "VinTech | Privacy Policy",
+    "privacyPolicyPageDescription": "VinTech AS Privacy Policy. Learn how we handle your personal information."
   },
   "Navbar": {
     "brand": "VinTech",
