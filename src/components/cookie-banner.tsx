@@ -3,9 +3,33 @@
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import Script from "next/script";
 import { Button } from "@/components/ui/button";
 
 export default function CookieBanner() {
+  const [scriptReady, setScriptReady] = useState(false);
+
+  return (
+    <>
+      <Script onReady={() => setScriptReady(true)} id="cookie-consent-default-no-consent">
+        {`
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+
+         gtag('consent', 'default', {
+           'ad_storage': 'denied',
+           'ad_user_data': 'denied',
+           'ad_personalization': 'denied',
+           'analytics_storage': 'denied'
+         });
+        `}
+      </Script>
+      {scriptReady ? <CookieBannerComponent /> : null}
+    </>
+  );
+}
+
+function CookieBannerComponent() {
   const t = useTranslations("Components.CookieBanner");
   const [showBanner, setShowBanner] = useState(false);
 
@@ -19,16 +43,16 @@ export default function CookieBanner() {
   const acceptAll = () => {
     localStorage.setItem("cookie-consent", "full");
     setShowBanner(false);
-    if (window.gtag) {
-      window.gtag("consent", "update", { analytics_storage: "granted" });
+    if (gtag) {
+      gtag("consent", "update", { analytics_storage: "granted" });
     }
   };
 
   const essentialOnly = () => {
     localStorage.setItem("cookie-consent", "essential");
     setShowBanner(false);
-    if (window.gtag) {
-      window.gtag("consent", "update", { analytics_storage: "denied" });
+    if (gtag) {
+      gtag("consent", "update", { analytics_storage: "denied" });
     }
   };
 

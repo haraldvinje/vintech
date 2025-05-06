@@ -68,7 +68,7 @@ export default async function LocaleLayout({
 
   return (
     <html suppressHydrationWarning lang={locale}>
-      <GoogleTagManager gtmId="GTM-KGSWFGCP" />
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_CONTAINER_ID ?? ""} />
       <body className="antialiased">
         <ThemeProvider
           attribute="class"
