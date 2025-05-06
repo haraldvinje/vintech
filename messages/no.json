@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "VinTech | Skreddersydde IT-løsninger",
-    "description": "IT konsulenttjenester spesialisert på backend, sky og infrastruktur."
+    "description": "IT konsulenttjenester spesialisert på backend, sky og infrastruktur. Eies og drives av Harald Vinje."
   },
   "Navbar": {
     "brand": "VinTech",
@@ -105,7 +105,7 @@
   "Footer": {
     "company": {
       "name": "VinTech AS",
-      "description": "VinTech AS er et norsk IT-konsulentselskap som spesialiserer seg på tekniske løsninger av høy kvalitet tilpasset din bedrifts behov."
+      "description": "VinTech AS er et norsk IT-konsulentselskap som spesialiserer seg på tekniske løsninger av høy kvalitet tilpasset din bedrifts behov. VinTech AS eies og drives av Harald Vinje."
     },
     "quickLinks": {
       "title": "Hurtiglenker",

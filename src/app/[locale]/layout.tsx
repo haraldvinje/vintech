@@ -7,7 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
+import { LOCALES_EXLCUDED_DEFAULT, routing } from "@/i18n/routing";
 import CookieBanner from "@/components/cookie-banner";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/navbar";
@@ -25,19 +25,27 @@ export async function generateMetadata({
 
   const t = await getTranslations("Metadata");
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.vintech.no";
+  const alternateLanguages = Object.fromEntries(
+    LOCALES_EXLCUDED_DEFAULT.map((locale) => [locale, `${siteUrl}/${locale}`])
+  );
+
   return {
     title: t("title"),
     description: t("description"),
-    metadataBase: new URL("https://vintech.no"),
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      languages: alternateLanguages
+    },
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: new URL(`/${locale}`, "https://vintech.no"),
+      url: new URL(`/${locale}`, siteUrl),
       siteName: "VinTech",
       locale,
       images: [
         {
-          url: new URL("/logo-light.png", "https://vintech.no").toString(),
+          url: new URL("/logo-light.png", siteUrl).toString(),
           width: 1200,
           height: 630,
         },
