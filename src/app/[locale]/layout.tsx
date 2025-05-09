@@ -13,6 +13,8 @@ import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/sections/footer";
 
+export const dynamic = 'force-static'
+
 export async function generateMetadata({
   params,
 }: {
