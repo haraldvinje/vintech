@@ -66,10 +66,10 @@ function CookieBannerComponent() {
           <p className="text-sm text-muted-foreground">{t("description")}</p>
         </div>
         <div className="flex flex-wrap gap-2">
+          <Button onClick={acceptAll}>{t("acceptAll")}</Button>
           <Button variant="outline" onClick={essentialOnly}>
             {t("essentialOnly")}
           </Button>
-          <Button onClick={acceptAll}>{t("acceptAll")}</Button>
           <Button
             variant="ghost"
             size="icon"
