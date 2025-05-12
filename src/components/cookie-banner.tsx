@@ -1,62 +1,113 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import { X } from "lucide-react";
 import Script from "next/script";
 import { Button } from "@/components/ui/button";
 
-export default function CookieBanner() {
-  const [scriptReady, setScriptReady] = useState(false);
+const ConsentTypes = {
+  full: "full",
+  essential: "essential",
+};
 
-  return (
-    <>
-      <Script onReady={() => setScriptReady(true)} id="cookie-consent-default-no-consent">
-        {`
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
+type ConsentStatus = keyof typeof ConsentTypes | null;
 
-         gtag('consent', 'default', {
-           'ad_storage': 'denied',
-           'ad_user_data': 'denied',
-           'ad_personalization': 'denied',
-           'analytics_storage': 'denied'
-         });
-        `}
-      </Script>
-      {scriptReady ? <CookieBannerComponent /> : null}
-    </>
-  );
+type CookieConsentContextType = {
+  showBanner: () => void;
+  acceptAll: () => void;
+  essentialOnly: () => void;
+  consentStatus: ConsentStatus;
+};
+
+const CookieConsentContext = createContext<CookieConsentContextType | null>(
+  null
+);
+
+export function useCookieConsent() {
+  const context = useContext(CookieConsentContext);
+  if (!context) {
+    throw new Error(
+      "useCookieConsent must be used within a CookieConsentProvider"
+    );
+  }
+  return context;
 }
 
-function CookieBannerComponent() {
-  const t = useTranslations("Components.CookieBanner");
-  const [showBanner, setShowBanner] = useState(false);
+export function CookieConsentProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [scriptReady, setScriptReady] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(false);
+  const [consentStatus, setConsentStatus] = useState<ConsentStatus>(null);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
-      setShowBanner(true);
+    if (typeof window !== "undefined") {
+      const savedConsent = validateConsent(
+        localStorage.getItem("cookie-consent")
+      );
+      setConsentStatus(savedConsent);
+
+      if (!savedConsent && scriptReady) {
+        setBannerVisible(true);
+      }
     }
-  }, []);
+  }, [scriptReady]);
+
+  const showBanner = () => {
+    setBannerVisible(true);
+  };
 
   const acceptAll = () => {
     localStorage.setItem("cookie-consent", "full");
-    setShowBanner(false);
-    if (gtag) {
+    setConsentStatus("full");
+    setBannerVisible(false);
+    if (typeof gtag !== "undefined") {
       gtag("consent", "update", { analytics_storage: "granted" });
     }
   };
 
   const essentialOnly = () => {
     localStorage.setItem("cookie-consent", "essential");
-    setShowBanner(false);
-    if (gtag) {
+    setConsentStatus("essential");
+    setBannerVisible(false);
+    if (typeof gtag !== "undefined") {
       gtag("consent", "update", { analytics_storage: "denied" });
     }
   };
 
-  if (!showBanner) return null;
+  return (
+    <CookieConsentContext.Provider
+      value={{ showBanner, acceptAll, essentialOnly, consentStatus }}
+    >
+      <Script
+        id="cookie-consent-script"
+        onReady={() => setScriptReady(true)}
+      >
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          
+          gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied'
+          });
+        `}
+      </Script>
+
+      {bannerVisible && <CookieBanner />}
+      {children}
+    </CookieConsentContext.Provider>
+  );
+}
+
+function CookieBanner() {
+  const t = useTranslations("Components.CookieBanner");
+  const { acceptAll, essentialOnly } = useCookieConsent();
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-background border-t shadow-lg">
@@ -82,4 +133,12 @@ function CookieBannerComponent() {
       </div>
     </div>
   );
+}
+
+function isConsentType(val: unknown): val is keyof typeof ConsentTypes {
+  return typeof val === "string" && val in ConsentTypes;
+}
+
+function validateConsent(val: unknown): ConsentStatus {
+  return isConsentType(val) ? val : null;
 }

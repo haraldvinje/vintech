@@ -122,8 +122,9 @@
       "email": "E-post",
       "blog": "Blogg"
     },
-    "copyright": "© {year} VinTech AS.",
-    "privacyPolicyLink": "Personvernerklæring"
+    "copyright": "© {year} VinTech AS",
+    "privacyPolicyLink": "Personvernerklæring",
+    "cookieConsentSettings": "Innstillinger for informasjonskapsler"
   },
   "Components": {
     "LocaleSwitcher": {

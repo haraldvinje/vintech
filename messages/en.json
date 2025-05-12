@@ -122,8 +122,9 @@
       "email": "Email",
       "blog": "Blog"
     },
-    "copyright": "© {year} VinTech AS.",
-    "privacyPolicyLink": "Privacy Policy"
+    "copyright": "© {year} VinTech AS",
+    "privacyPolicyLink": "Privacy Policy",
+    "cookieConsentSettings": "Cookie Settings"
   },
   "Components": {
     "LocaleSwitcher": {

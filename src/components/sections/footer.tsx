@@ -1,10 +1,15 @@
+"use client";
+
 import { Mail, Github, Linkedin, Book } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useCookieConsent } from "@/components/cookie-banner";
 import { Link } from "@/i18n/navigation";
+import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
+  const { showBanner } = useCookieConsent();
 
   return (
     <footer className="w-full py-8 bg-background border-t">
@@ -94,13 +99,31 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
       <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
-        <p>
-          {t("copyright", { year: currentYear })}{" "}
-          <Link href="/privacy-policy" className="hover:underline">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
+          <p>{t("copyright", { year: currentYear })}</p>
+
+          <div className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground/50"></div>
+
+          <Link
+            href="/privacy-policy"
+            className="hover:text-foreground transition-colors"
+          >
             {t("privacyPolicyLink")}
           </Link>
-        </p>
+
+          <div className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground/50"></div>
+
+          <Button
+            onClick={showBanner}
+            variant="link"
+            className="p-0 h-auto text-sm text-muted-foreground hover:text-foreground hover:no-underline transition-colors"
+            aria-label={t("cookieConsentSettings")}
+          >
+            {t("cookieConsentSettings")}
+          </Button>
+        </div>
       </div>
     </footer>
   );

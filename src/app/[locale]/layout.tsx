@@ -8,12 +8,12 @@ import { getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
 import { LOCALES_EXLCUDED_DEFAULT, routing } from "@/i18n/routing";
-import CookieBanner from "@/components/cookie-banner";
+import { CookieConsentProvider } from "@/components/cookie-banner";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/sections/footer";
 
-export const dynamic = 'force-static'
+export const dynamic = "force-static";
 
 export async function generateMetadata({
   params,
@@ -37,7 +37,7 @@ export async function generateMetadata({
     description: t("description"),
     metadataBase: new URL(siteUrl),
     alternates: {
-      languages: alternateLanguages
+      languages: alternateLanguages,
     },
     openGraph: {
       title: t("title"),
@@ -70,7 +70,9 @@ export default async function LocaleLayout({
 
   return (
     <html suppressHydrationWarning lang={locale}>
-      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_CONTAINER_ID ?? ""} />
+      <GoogleTagManager
+        gtmId={process.env.NEXT_PUBLIC_GTM_CONTAINER_ID ?? ""}
+      />
       <body className="antialiased">
         <ThemeProvider
           attribute="class"
@@ -79,12 +81,13 @@ export default async function LocaleLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider>
-            <main className="min-h-screen flex flex-col mx-auto">
-              <Navbar />
-              {children}
-            </main>
-            <Footer />
-            <CookieBanner />
+            <CookieConsentProvider>
+              <main className="min-h-screen flex flex-col mx-auto">
+                <Navbar />
+                {children}
+              </main>
+              <Footer />
+            </CookieConsentProvider>
             <Toaster />
           </NextIntlClientProvider>
         </ThemeProvider>
