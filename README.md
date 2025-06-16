@@ -46,7 +46,11 @@ For other operating systems or shell configurations, see [asdf Installation](htt
 asdf plugin add bun
 
 # Install the correct version of bun (specified in .tool-versions)
-asdf install
+asdf install <version-number>
+
+# e.g
+
+asdf install 1.2.16
 
 # Verify that bun is installed correctly
 bun --version
