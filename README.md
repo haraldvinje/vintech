@@ -49,7 +49,6 @@ asdf plugin add bun
 asdf install <version-number>
 
 # e.g
-
 asdf install 1.2.16
 
 # Verify that bun is installed correctly
