@@ -39,7 +39,7 @@ function getAlternateLanguagesForPath(siteUrl: string, path: string) {
     LOCALES_EXLCUDED_DEFAULT.map((locale) => [
       locale,
       `${siteUrl}/${locale}/${path}`,
-    ])
+    ]),
   );
 
   return alternateLanguages;

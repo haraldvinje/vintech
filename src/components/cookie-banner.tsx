@@ -21,14 +21,14 @@ type CookieConsentContextType = {
 };
 
 const CookieConsentContext = createContext<CookieConsentContextType | null>(
-  null
+  null,
 );
 
 export function useCookieConsent() {
   const context = useContext(CookieConsentContext);
   if (!context) {
     throw new Error(
-      "useCookieConsent must be used within a CookieConsentProvider"
+      "useCookieConsent must be used within a CookieConsentProvider",
     );
   }
   return context;
@@ -46,7 +46,7 @@ export function CookieConsentProvider({
   useEffect(() => {
     if (typeof window !== "undefined") {
       const savedConsent = validateConsent(
-        localStorage.getItem("cookie-consent")
+        localStorage.getItem("cookie-consent"),
       );
       setConsentStatus(savedConsent);
 
@@ -82,10 +82,7 @@ export function CookieConsentProvider({
     <CookieConsentContext.Provider
       value={{ showBanner, acceptAll, essentialOnly, consentStatus }}
     >
-      <Script
-        id="cookie-consent-script"
-        onReady={() => setScriptReady(true)}
-      >
+      <Script id="cookie-consent-script" onReady={() => setScriptReady(true)}>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

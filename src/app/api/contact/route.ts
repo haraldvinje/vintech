@@ -28,7 +28,7 @@ export async function POST(req: Request) {
   const formattedDate = formatInTimeZone(
     now,
     "Europe/Oslo",
-    `HH:mm, MMMM d'${getOrdinalSuffix(day)}' yyyy`
+    `HH:mm, MMMM d'${getOrdinalSuffix(day)}' yyyy`,
   );
 
   try {
@@ -128,7 +128,7 @@ export async function POST(req: Request) {
     console.error("Email error:", error);
     return NextResponse.json(
       { error: "Failed to send email" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

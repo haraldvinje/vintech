@@ -3,7 +3,11 @@ import { hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { DEFAULT_LOCALE, LOCALES_EXLCUDED_DEFAULT, routing } from "@/i18n/routing";
+import {
+  DEFAULT_LOCALE,
+  LOCALES_EXLCUDED_DEFAULT,
+  routing,
+} from "@/i18n/routing";
 
 export async function generateMetadata({
   params,
@@ -24,10 +28,10 @@ export async function generateMetadata({
     LOCALES_EXLCUDED_DEFAULT.map((locale) => [
       locale,
       `${siteUrl}/${locale}/${routeName}`,
-    ])
+    ]),
   );
 
-  const resultLocale = locale === DEFAULT_LOCALE ? "": `/${locale}`;
+  const resultLocale = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
 
   const urlWithPath = siteUrl + `${resultLocale}/${routeName}`;
 

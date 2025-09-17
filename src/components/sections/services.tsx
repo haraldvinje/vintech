@@ -25,7 +25,7 @@ export default function Services() {
       icon: <Brain className="h-8 w-8 text-primary" />,
       title: t("items.machineLearning.title"),
       description: t("items.machineLearning.description"),
-    }
+    },
   ];
 
   return (

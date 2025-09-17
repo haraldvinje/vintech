@@ -31,7 +31,7 @@ export default function Navbar() {
     const scrollbarWidth = getScrollbarWidth();
     document.documentElement.style.setProperty(
       "--scrollbar-width",
-      `${scrollbarWidth}px`
+      `${scrollbarWidth}px`,
     );
 
     const isBodyScrollable = () => {
@@ -87,7 +87,7 @@ export default function Navbar() {
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
+    targetId: string,
   ) => {
     e.preventDefault();
     setIsMenuOpen(false);

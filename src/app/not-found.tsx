@@ -15,18 +15,14 @@ export default function NotFound() {
               Siden du leter etter eksisterer ikke.
             </p>
           </div>
-          
+
           <div className="flex flex-wrap gap-4 mt-4">
             <Button asChild variant="default">
-              <Link href="/">
-                Gå til Forsiden
-              </Link>
+              <Link href="/">Gå til Forsiden</Link>
             </Button>
-            
+
             <Button asChild variant="outline">
-              <Link href="/en">
-                Go Home
-              </Link>
+              <Link href="/en">Go Home</Link>
             </Button>
           </div>
         </main>
