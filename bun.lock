@@ -36,7 +36,7 @@
         "eslint-config-next": "15.5.3",
         "eslint-plugin-no-relative-import-paths": "1.6.1",
         "husky": "9.1.7",
-        "lint-staged": "16.2.0",
+        "lint-staged": "16.2.3",
         "prettier": "3.6.2",
         "tailwindcss": "4.1.13",
         "tw-animate-css": "1.3.8",
@@ -731,7 +731,7 @@
 
     "lightningcss-win32-x64-msvc": ["lightningcss-win32-x64-msvc@1.30.1", "", { "os": "win32", "cpu": "x64" }, "sha512-PVqXh48wh4T53F/1CCu8PIPCxLzWyCnn/9T5W1Jpmdy5h9Cwd+0YQS6/LwhHXSafuc61/xg9Lv5OrCby6a++jg=="],
 
-    "lint-staged": ["lint-staged@16.2.0", "", { "dependencies": { "commander": "14.0.1", "listr2": "9.0.4", "micromatch": "4.0.8", "nano-spawn": "1.0.3", "pidtree": "0.6.0", "string-argv": "0.3.2", "yaml": "2.8.1" }, "bin": { "lint-staged": "bin/lint-staged.js" } }, "sha512-spdYSOCQ2MdZ9CM1/bu/kDmaYGsrpNOeu1InFFV8uhv14x6YIubGxbCpSmGILFoxkiheNQPDXSg5Sbb5ZuVnug=="],
+    "lint-staged": ["lint-staged@16.2.3", "", { "dependencies": { "commander": "^14.0.1", "listr2": "^9.0.4", "micromatch": "^4.0.8", "nano-spawn": "^1.0.3", "pidtree": "^0.6.0", "string-argv": "^0.3.2", "yaml": "^2.8.1" }, "bin": { "lint-staged": "bin/lint-staged.js" } }, "sha512-1OnJEESB9zZqsp61XHH2fvpS1es3hRCxMplF/AJUDa8Ho8VrscYDIuxGrj3m8KPXbcWZ8fT9XTMUhEQmOVKpKw=="],
 
     "listr2": ["listr2@9.0.4", "", { "dependencies": { "cli-truncate": "^5.0.0", "colorette": "^2.0.20", "eventemitter3": "^5.0.1", "log-update": "^6.1.0", "rfdc": "^1.4.1", "wrap-ansi": "^9.0.0" } }, "sha512-1wd/kpAdKRLwv7/3OKC8zZ5U8e/fajCfWMxacUvB79S5nLrYGPtUI/8chMQhn3LQjsRVErTb9i1ECAwW0ZIHnQ=="],
 
