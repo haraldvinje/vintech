@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, createContext, useContext } from "react";
 import { X } from "lucide-react";
 import Script from "next/script";
 import { Button } from "@/components/ui/button";
@@ -40,30 +40,24 @@ export function CookieConsentProvider({
   children: React.ReactNode;
 }) {
   const [scriptReady, setScriptReady] = useState(false);
-  const [bannerVisible, setBannerVisible] = useState(false);
-  const [consentStatus, setConsentStatus] = useState<ConsentStatus>(null);
-
-  useEffect(() => {
+  const [manuallyShown, setManuallyShown] = useState(false);
+  const [consentStatus, setConsentStatus] = useState<ConsentStatus>(() => {
     if (typeof window !== "undefined") {
-      const savedConsent = validateConsent(
-        localStorage.getItem("cookie-consent"),
-      );
-      setConsentStatus(savedConsent);
-
-      if (!savedConsent && scriptReady) {
-        setBannerVisible(true);
-      }
+      return validateConsent(localStorage.getItem("cookie-consent"));
     }
-  }, [scriptReady]);
+    return null;
+  });
+
+  const bannerVisible = (!consentStatus && scriptReady) || manuallyShown;
 
   const showBanner = () => {
-    setBannerVisible(true);
+    setManuallyShown(true);
   };
 
   const acceptAll = () => {
     localStorage.setItem("cookie-consent", "full");
     setConsentStatus("full");
-    setBannerVisible(false);
+    setManuallyShown(false);
     if (typeof gtag !== "undefined") {
       gtag("consent", "update", { analytics_storage: "granted" });
     }
@@ -72,7 +66,7 @@ export function CookieConsentProvider({
   const essentialOnly = () => {
     localStorage.setItem("cookie-consent", "essential");
     setConsentStatus("essential");
-    setBannerVisible(false);
+    setManuallyShown(false);
     if (typeof gtag !== "undefined") {
       gtag("consent", "update", { analytics_storage: "denied" });
     }
@@ -86,7 +80,7 @@ export function CookieConsentProvider({
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
-          
+
           gtag('consent', 'default', {
             'ad_storage': 'denied',
             'ad_user_data': 'denied',

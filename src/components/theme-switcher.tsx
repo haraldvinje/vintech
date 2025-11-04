@@ -1,5 +1,9 @@
 "use client";
 
+/* eslint-disable react-hooks/set-state-in-effect */
+// This file uses setState in useEffect for hydration mismatch prevention with next-themes
+// This is the recommended pattern per next-themes documentation
+
 import { useTheme } from "next-themes";
 
 import { Moon } from "lucide-react";
