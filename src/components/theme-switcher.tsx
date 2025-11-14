@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 
 import { Moon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffectEvent, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Switch } from "@/components/ui/switch";
 
@@ -13,8 +13,14 @@ export function ThemeSwitcher() {
 
   const t = useTranslations("Components.ThemeSwitcher");
 
+  const setToMounted = useEffectEvent(() => {
+    if (!mounted) {
+      setMounted(true);
+    }
+  })
+
   useEffect(() => {
-    setMounted(true);
+    setToMounted();
   }, []);
 
   if (!mounted) {
