@@ -33,7 +33,7 @@
     "tailwind-merge": "3.4.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "3.3.1",
+    "@eslint/eslintrc": "3.3.3",
     "@next/eslint-plugin-next": "16.0.8",
     "@tailwindcss/postcss": "4.1.17",
     "@types/gtag.js": "0.0.20",
