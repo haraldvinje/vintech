@@ -45,8 +45,8 @@ export default function Services() {
           </div>
         </div>
         <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-6 lg:gap-8 mt-8">
-          {services.map((service, index) => (
-            <Card key={index} className="flex flex-col h-full">
+          {services.map((service) => (
+            <Card key={service.title} className="flex flex-col h-full">
               <CardHeader className="pb-2">
                 <div className="mb-2">{service.icon}</div>
                 <CardTitle className="text-xl">{service.title}</CardTitle>

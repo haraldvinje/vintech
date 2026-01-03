@@ -24,6 +24,7 @@ export async function generateMetadata({
   }
 
   const t = await getTranslations("Metadata");
+  const keywords = (t.raw("keywords") as string[] | undefined) ?? [];
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.vintech.no";
   const alternateLanguages = Object.fromEntries(
@@ -33,8 +34,10 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
+    keywords,
     metadataBase: new URL(siteUrl),
     alternates: {
+      canonical: new URL(`/${locale}`, siteUrl).toString(),
       languages: alternateLanguages,
     },
     openGraph: {
@@ -43,6 +46,18 @@ export async function generateMetadata({
       url: new URL(`/${locale}`, siteUrl),
       siteName: "VinTech",
       locale,
+      images: [
+        {
+          url: new URL("/logo-light.png", siteUrl).toString(),
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
       images: [
         {
           url: new URL("/logo-light.png", siteUrl).toString(),

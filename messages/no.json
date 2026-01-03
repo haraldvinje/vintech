@@ -1,7 +1,20 @@
 {
   "Metadata": {
-    "title": "VinTech | Skreddersydde IT-løsninger",
-    "description": "IT konsulenttjenester spesialisert på backend, sky og infrastruktur. Eies og drives av Harald Vinje.",
+    "title": "VinTech | Backend- og sky-konsulent",
+    "description": "IT-konsulent med spisskompetanse på backend, sky og integrasjoner. Dokumenterte leveranser innen logistikk, FinTech og andre domener.",
+    "keywords": [
+      "IT-konsulent",
+      "IT konsulent",
+      "backend-konsulent",
+      "skymodernisering",
+      "systemintegrasjoner",
+      "API-design",
+      "driftssikkerhet",
+      "observability",
+      "logistikksystemer",
+      "transportteknologi",
+      "FinTech-integrasjoner"
+    ],
     "privacyPolicyPageTitle": "VinTech | Personvernerklæring",
     "privacyPolicyPageDescription": "Les vår personvernerklæring for å forstå hvordan vi håndterer dine personopplysninger."
   },
@@ -15,15 +28,15 @@
   },
   "Hero": {
     "title": "IT-tjenester for din bedrift",
-    "description": "Spesialisert i backend-utvikling, skyløsninger og infrastruktur.",
+    "description": "IT-konsulent spesialisert i backend-utvikling, skyløsninger og integrasjoner – med fokus på stabile leveranser.",
     "contact": "Ta kontakt",
-    "explore": "Utforsk tjenester",
+    "explore": "Se tjenester",
     "imageAlt": "Portrettbilde av Harald Vinje",
     "imageTitle": "Portrettbilde av Harald Vinje"
   },
   "About": {
     "title": "Om VinTech",
-    "description": "VinTech AS leverer programvareløsninger av høy kvalitet tilpasset din bedrifts behov.",
+    "description": "VinTech AS leverer programvareløsninger av høy kvalitet tilpasset din bedrifts behov. Står sterkest innen logistikk og transport (TMS, PMS, ERP), FinTech/betaling og B2B SaaS-integrasjoner, men er åpen for nærliggende domener – med fokus på driftssikkerhet og målbar effekt.",
     "approach": {
       "title": "Tilnærming",
       "content": "Selv om jeg brenner for teknologi og streber etter å holde meg oppdatert på de nyeste trendene, tror jeg på en tilnærming der forretningsmålet er hovedfokus. Jeg jobber tett med kunder for å forstå deres unike utfordringer og mål, og sikrer at løsningene jeg leverer ikke bare er teknisk solide, men også i tråd med virksomhetens mål og ambisjoner."
