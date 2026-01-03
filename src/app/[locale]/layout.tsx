@@ -7,7 +7,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
-import { LOCALES_EXLCUDED_DEFAULT, routing } from "@/i18n/routing";
+import {
+  DEFAULT_LOCALE,
+  LOCALES_EXLCUDED_DEFAULT,
+  routing,
+} from "@/i18n/routing";
 import { CookieConsentProvider } from "@/components/cookie-banner";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/navbar";
@@ -31,19 +35,22 @@ export async function generateMetadata({
     LOCALES_EXLCUDED_DEFAULT.map((locale) => [locale, `${siteUrl}/${locale}`]),
   );
 
+  const resultLocale = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
+  const canonicalUrl = siteUrl + resultLocale;
+
   return {
     title: t("title"),
     description: t("description"),
     keywords,
     metadataBase: new URL(siteUrl),
     alternates: {
-      canonical: new URL(`/${locale}`, siteUrl).toString(),
+      canonical: canonicalUrl,
       languages: alternateLanguages,
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: new URL(`/${locale}`, siteUrl),
+      url: new URL(canonicalUrl),
       siteName: "VinTech",
       locale,
       images: [
