@@ -7,11 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
-import {
-  DEFAULT_LOCALE,
-  LOCALES_EXLCUDED_DEFAULT,
-  routing,
-} from "@/i18n/routing";
+import { DEFAULT_LOCALE, routing } from "@/i18n/routing";
 import { CookieConsentProvider } from "@/components/cookie-banner";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/navbar";
@@ -31,12 +27,16 @@ export async function generateMetadata({
   const keywords = (t.raw("keywords") as string[] | undefined) ?? [];
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.vintech.no";
-  const alternateLanguages = Object.fromEntries(
-    LOCALES_EXLCUDED_DEFAULT.map((locale) => [locale, `${siteUrl}/${locale}`]),
-  );
+  
+  const localePath = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
+  const canonicalUrl = siteUrl + localePath;
 
-  const resultLocale = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
-  const canonicalUrl = siteUrl + resultLocale;
+  const alternateLanguages = Object.fromEntries(
+    routing.locales.map((loc) => {
+      const path = loc === DEFAULT_LOCALE ? "" : `/${loc}`;
+      return [loc, `${siteUrl}${path}`];
+    }),
+  );
 
   return {
     title: t("title"),
