@@ -7,21 +7,25 @@ export default function Services() {
 
   const services = [
     {
+      type: "development",
       icon: <Code className="h-8 w-8 text-primary" />,
       title: t("items.development.title"),
       description: t("items.development.description"),
     },
     {
+      type: "cloud",
       icon: <Cloud className="h-8 w-8 text-primary" />,
       title: t("items.cloud.title"),
       description: t("items.cloud.description"),
     },
     {
+      type: "strategy",
       icon: <LucideRoute className="h-8 w-8 text-primary" />,
       title: t("items.strategy.title"),
       description: t("items.strategy.description"),
     },
     {
+      type: "machineLearning",
       icon: <Brain className="h-8 w-8 text-primary" />,
       title: t("items.machineLearning.title"),
       description: t("items.machineLearning.description"),
@@ -46,7 +50,7 @@ export default function Services() {
         </div>
         <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-6 lg:gap-8 mt-8">
           {services.map((service) => (
-            <Card key={service.title} className="flex flex-col h-full">
+            <Card key={service.type} className="flex flex-col h-full">
               <CardHeader className="pb-2">
                 <div className="mb-2">{service.icon}</div>
                 <CardTitle className="text-xl">{service.title}</CardTitle>
