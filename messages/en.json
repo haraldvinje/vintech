@@ -1,7 +1,19 @@
 {
   "Metadata": {
-    "title": "VinTech | Tailored IT Solutions",
-    "description": "IT consulting services specialized in backend, cloud and infrastructure. Owned and operated by Harald Vinje.",
+    "title": "VinTech | Backend & Cloud Consultant",
+    "description": "IT consultant specializing in backend, cloud, and integrations. Proven delivery across logistics, FinTech, and other domains.",
+    "keywords": [
+      "IT consultant",
+      "backend consultant",
+      "cloud modernization",
+      "system integrations",
+      "API design",
+      "site reliability",
+      "observability",
+      "logistics systems",
+      "transport technology",
+      "FinTech integrations"
+    ],
     "privacyPolicyPageTitle": "VinTech | Privacy Policy",
     "privacyPolicyPageDescription": "VinTech AS Privacy Policy. Learn how we handle your personal information."
   },
@@ -14,16 +26,16 @@
     "closeMenu": "Close menu"
   },
   "Hero": {
-    "title": "IT services for Your Business",
-    "description": "Specialized in backend development, cloud solutions and infrastructure.",
-    "contact": "Get in Touch",
-    "explore": "Explore services",
+    "title": "IT services for your business",
+    "description": "Independent IT consultant specialized in backend development, cloud solutions, and integrations—built for stable delivery.",
+    "contact": "Book a call",
+    "explore": "See services",
     "imageAlt": "Portrait of Harald Vinje",
     "imageTitle": "Portrait of Harald Vinje"
   },
   "About": {
     "title": "About VinTech",
-    "description": "VinTech AS delivers high quality software solutions tailored to your business needs. VinTech is owned and operated by Harald Vinje.",
+    "description": "VinTech AS delivers high quality software solutions tailored to your business needs. VinTech is owned and operated by Harald Vinje, a senior consultant in backend, cloud, and integrations. Harald is strongest in logistics and transport (TMS, PMS, ERP), FinTech/payments, and B2B SaaS integrations—while remaining open to adjacent domains—with a focus on reliability and measurable impact.",
     "approach": {
       "title": "Approach",
       "content": "While I am passionate about technology and strive to stay on top of the latest trends, I believe in an approach where the business objective is the main focus. I work closely with clients to understand their unique challenges and goals, ensuring that the solutions I provide are not only technically sound, but also aligned with the goals and objectives of the business."
