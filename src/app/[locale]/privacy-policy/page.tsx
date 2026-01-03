@@ -38,7 +38,7 @@ export async function generateMetadata({
   return {
     title: t("privacyPolicyPageTitle"),
     description: t("privacyPolicyPageDescription"),
-    metadataBase: urlWithPath,
+    metadataBase: siteUrl,
     alternates: {
       languages: alternateLanguages,
     },
