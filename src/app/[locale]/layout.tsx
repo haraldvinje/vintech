@@ -1,17 +1,17 @@
 import "@/app/globals.css";
-import type { Metadata } from "next";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
-import { notFound } from "next/navigation";
-import { LOCALES_EXLCUDED_DEFAULT, routing } from "@/i18n/routing";
 import { CookieConsentProvider } from "@/components/cookie-banner";
-import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/sections/footer";
+import { Toaster } from "@/components/ui/sonner";
+import { DEFAULT_LOCALE, routing } from "@/i18n/routing";
 
 export async function generateMetadata({
   params,
@@ -24,25 +24,46 @@ export async function generateMetadata({
   }
 
   const t = await getTranslations("Metadata");
+  const keywords = (t.raw("keywords") as string[] | undefined) ?? [];
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.vintech.no";
+  const localePath = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
+  const canonicalUrl = siteUrl + localePath;
+
   const alternateLanguages = Object.fromEntries(
-    LOCALES_EXLCUDED_DEFAULT.map((locale) => [locale, `${siteUrl}/${locale}`]),
+    routing.locales.map((loc) => {
+      const path = loc === DEFAULT_LOCALE ? "" : `/${loc}`;
+      return [loc, `${siteUrl}${path}`];
+    })
   );
 
   return {
     title: t("title"),
     description: t("description"),
+    keywords,
     metadataBase: new URL(siteUrl),
     alternates: {
+      canonical: canonicalUrl,
       languages: alternateLanguages,
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: new URL(`/${locale}`, siteUrl),
+      url: new URL(canonicalUrl),
       siteName: "VinTech",
       locale,
+      images: [
+        {
+          url: new URL("/logo-light.png", siteUrl).toString(),
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
       images: [
         {
           url: new URL("/logo-light.png", siteUrl).toString(),

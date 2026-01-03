@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
@@ -33,19 +33,19 @@ export async function generateMetadata({
 
   const resultLocale = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
 
-  const urlWithPath = siteUrl + `${resultLocale}/${routeName}`;
+  const urlWithPath = new URL(`${siteUrl}${resultLocale}/${routeName}`);
 
   return {
     title: t("privacyPolicyPageTitle"),
     description: t("privacyPolicyPageDescription"),
-    metadataBase: new URL(urlWithPath),
+    metadataBase: urlWithPath,
     alternates: {
       languages: alternateLanguages,
     },
     openGraph: {
       title: t("privacyPolicyPageTitle"),
       description: t("privacyPolicyPageDescription"),
-      url: new URL(urlWithPath),
+      url: urlWithPath,
       siteName: "VinTech",
       locale,
       images: [
