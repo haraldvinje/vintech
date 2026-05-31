@@ -20,6 +20,9 @@ export function ThemeSwitcher() {
   })
 
   useEffect(() => {
+    // Mount detection to avoid hydration mismatch with next-themes; the
+    // synchronous setState here is intentional and runs once on mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setToMounted();
   }, []);
 

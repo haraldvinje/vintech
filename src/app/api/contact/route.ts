@@ -2,8 +2,6 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { formatInTimeZone } from "date-fns-tz";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function getOrdinalSuffix(day: number): string {
   if (day > 3 && day < 21) return "th";
   switch (day % 10) {
@@ -32,6 +30,7 @@ export async function POST(req: Request) {
   );
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: "VinTech Contact Form <no-reply@vintech.no>",
       to: "contact@vintech.no",

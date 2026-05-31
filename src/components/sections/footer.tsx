@@ -1,6 +1,7 @@
 "use client";
 
-import { Mail, Github, Linkedin, Book } from "lucide-react";
+import { Mail, Book } from "lucide-react";
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { useTranslations } from "next-intl";
 import { useCookieConsent } from "@/components/cookie-banner";
 import { Link } from "@/i18n/navigation";
@@ -62,7 +63,7 @@ export default function Footer() {
                 aria-label={t("connect.github")}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Github className="h-5 w-5" />
+                <GitHubLogoIcon className="h-5 w-5" />
                 <span className="sr-only">{t("connect.github")}</span>
               </Link>
               <Link
@@ -72,7 +73,7 @@ export default function Footer() {
                 aria-label={t("connect.linkedin")}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Linkedin className="h-5 w-5" />
+                <LinkedInLogoIcon className="h-5 w-5" />
                 <span className="sr-only">{t("connect.linkedin")}</span>
               </Link>
               <Link
