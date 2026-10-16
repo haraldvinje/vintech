@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
@@ -11,6 +12,7 @@ import { CookieConsentProvider } from "@/components/cookie-banner";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/sections/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { CONSENT_DEFAULT_SCRIPT } from "@/lib/consent";
 import { DEFAULT_LOCALE, routing } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -89,6 +91,10 @@ export default async function LocaleLayout({
 
   return (
     <html suppressHydrationWarning lang={locale}>
+      {/* Must run before GTM so tags never see an unset consent state */}
+      <Script id="consent-default" strategy="beforeInteractive">
+        {CONSENT_DEFAULT_SCRIPT}
+      </Script>
       <GoogleTagManager
         gtmId={process.env.NEXT_PUBLIC_GTM_CONTAINER_ID ?? ""}
       />

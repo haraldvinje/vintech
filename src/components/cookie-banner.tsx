@@ -1,9 +1,13 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState, createContext, useContext } from "react";
+import {
+  useState,
+  createContext,
+  useContext,
+  useSyncExternalStore,
+} from "react";
 import { X } from "lucide-react";
-import Script from "next/script";
 import { Button } from "@/components/ui/button";
 
 const ConsentTypes = {
@@ -39,7 +43,11 @@ export function CookieConsentProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [scriptReady, setScriptReady] = useState(false);
+  const isClient = useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false,
+  );
   const [consentStatus, setConsentStatus] = useState<ConsentStatus>(() => {
     if (typeof window !== "undefined") {
       return validateConsent(localStorage.getItem("cookie-consent"));
@@ -47,7 +55,7 @@ export function CookieConsentProvider({
     return null;
   });
 
-  const shouldShowBanner = consentStatus === null && scriptReady;
+  const shouldShowBanner = consentStatus === null && isClient;
 
   const showBanner = () => {
     setConsentStatus(null);
@@ -73,20 +81,6 @@ export function CookieConsentProvider({
     <CookieConsentContext.Provider
       value={{ showBanner, acceptAll, essentialOnly, consentStatus }}
     >
-      <Script id="cookie-consent-script" onReady={() => setScriptReady(true)}>
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-
-          gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'analytics_storage': 'denied'
-          });
-        `}
-      </Script>
-
       {shouldShowBanner && <CookieBanner />}
       {children}
     </CookieConsentContext.Provider>
@@ -121,6 +115,10 @@ function CookieBanner() {
       </div>
     </div>
   );
+}
+
+function subscribeNoop() {
+  return () => {};
 }
 
 function isConsentType(val: unknown): val is keyof typeof ConsentTypes {
