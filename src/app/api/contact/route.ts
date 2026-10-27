@@ -16,8 +16,51 @@ function getOrdinalSuffix(day: number): string {
   }
 }
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function readField(body: Record<string, unknown>, key: string): string {
+  const value = body[key];
+  return typeof value === "string" ? value.trim() : "";
+}
+
 export async function POST(req: Request) {
-  const { name, email, subject, message } = await req.json();
+  let body: Record<string, unknown>;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  }
+
+  const name = readField(body, "name");
+  const email = readField(body, "email");
+  const subject = readField(body, "subject");
+  const message = readField(body, "message");
+
+  if (
+    !name ||
+    !message ||
+    !EMAIL_PATTERN.test(email) ||
+    name.length > 200 ||
+    email.length > 254 ||
+    subject.length > 200 ||
+    message.length > 10000
+  ) {
+    return NextResponse.json({ error: "Invalid form data" }, { status: 400 });
+  }
+
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeSubject = escapeHtml(subject);
+  const safeMessage = escapeHtml(message);
   const now = new Date();
 
   const osloTime = formatInTimeZone(now, "Europe/Oslo", "dd");
@@ -31,7 +74,7 @@ export async function POST(req: Request) {
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "VinTech Contact Form <no-reply@vintech.no>",
       to: "contact@vintech.no",
       replyTo: email,
@@ -100,18 +143,18 @@ export async function POST(req: Request) {
             </div>
             
             <div class="info-row">
-              <span class="label">Name:</span> ${name}
+              <span class="label">Name:</span> ${safeName}
             </div>
             
             <div class="info-row">
-              <span class="label">Email:</span> <a href="mailto:${email}">${email}</a>
+              <span class="label">Email:</span> <a href="mailto:${safeEmail}">${safeEmail}</a>
             </div>
             
-            ${subject ? `<div class="info-row"><span class="label">Subject:</span> ${subject}</div>` : ""}
+            ${subject ? `<div class="info-row"><span class="label">Subject:</span> ${safeSubject}</div>` : ""}
             
             <div class="info-row">
               <div class="label">Message:</div>
-              <div class="message-container">${message}</div>
+              <div class="message-container">${safeMessage}</div>
             </div>
             
             <div class="footer">
@@ -121,6 +164,10 @@ export async function POST(req: Request) {
         </html>
       `,
     });
+
+    if (error) {
+      throw error;
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
