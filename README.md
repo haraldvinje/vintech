@@ -92,6 +92,9 @@ bun run build
 
 # Run linting
 bun run lint
+
+# Run all checks (format, lint, build) before pushing; CI runs the same
+bun run verify
 ```
 
 ## Need Help?

@@ -36,7 +36,7 @@ export async function generateMetadata({
     routing.locales.map((loc) => {
       const path = loc === DEFAULT_LOCALE ? "" : `/${loc}`;
       return [loc, `${siteUrl}${path}`];
-    })
+    }),
   );
 
   return {
