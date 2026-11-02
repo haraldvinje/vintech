@@ -17,7 +17,7 @@ export function ThemeSwitcher() {
     if (!mounted) {
       setMounted(true);
     }
-  })
+  });
 
   useEffect(() => {
     // Mount detection to avoid hydration mismatch with next-themes; the
