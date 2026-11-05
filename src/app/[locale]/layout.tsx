@@ -1,92 +1,92 @@
-import "@/app/globals.css";
-import { GoogleTagManager } from "@next/third-parties/google";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import Script from "next/script";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations } from "next-intl/server";
-import { ThemeProvider } from "next-themes";
-import { CookieConsentProvider } from "@/components/cookie-banner";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/sections/footer";
-import { Toaster } from "@/components/ui/sonner";
-import { CONSENT_DEFAULT_SCRIPT } from "@/lib/consent";
-import { DEFAULT_LOCALE, routing } from "@/i18n/routing";
+import '@/app/globals.css'
+import { GoogleTagManager } from '@next/third-parties/google'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import Script from 'next/script'
+import { hasLocale, NextIntlClientProvider } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
+import { ThemeProvider } from 'next-themes'
+import { CookieConsentProvider } from '@/components/cookie-banner'
+import Navbar from '@/components/navbar'
+import Footer from '@/components/sections/footer'
+import { Toaster } from '@/components/ui/sonner'
+import { CONSENT_DEFAULT_SCRIPT } from '@/lib/consent'
+import { DEFAULT_LOCALE, routing } from '@/i18n/routing'
 
 export async function generateMetadata({
-  params,
+  params
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const { locale } = await params
   if (!hasLocale(routing.locales, locale)) {
-    notFound();
+    notFound()
   }
 
-  const t = await getTranslations("Metadata");
-  const keywords = (t.raw("keywords") as string[] | undefined) ?? [];
+  const t = await getTranslations('Metadata')
+  const keywords = (t.raw('keywords') as string[] | undefined) ?? []
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.vintech.no";
-  const localePath = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
-  const canonicalUrl = siteUrl + localePath;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.vintech.no'
+  const localePath = locale === DEFAULT_LOCALE ? '' : `/${locale}`
+  const canonicalUrl = siteUrl + localePath
 
   const alternateLanguages = Object.fromEntries(
     routing.locales.map((loc) => {
-      const path = loc === DEFAULT_LOCALE ? "" : `/${loc}`;
-      return [loc, `${siteUrl}${path}`];
-    }),
-  );
+      const path = loc === DEFAULT_LOCALE ? '' : `/${loc}`
+      return [loc, `${siteUrl}${path}`]
+    })
+  )
 
   return {
-    title: t("title"),
-    description: t("description"),
+    title: t('title'),
+    description: t('description'),
     keywords,
     metadataBase: new URL(siteUrl),
     alternates: {
       canonical: canonicalUrl,
-      languages: alternateLanguages,
+      languages: alternateLanguages
     },
     openGraph: {
-      title: t("title"),
-      description: t("description"),
+      title: t('title'),
+      description: t('description'),
       url: new URL(canonicalUrl),
-      siteName: "VinTech",
+      siteName: 'VinTech',
       locale,
       images: [
         {
-          url: new URL("/logo-light.png", siteUrl).toString(),
+          url: new URL('/logo-light.png', siteUrl).toString(),
           width: 1200,
-          height: 630,
-        },
-      ],
+          height: 630
+        }
+      ]
     },
     twitter: {
-      card: "summary_large_image",
-      title: t("title"),
-      description: t("description"),
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
       images: [
         {
-          url: new URL("/logo-light.png", siteUrl).toString(),
+          url: new URL('/logo-light.png', siteUrl).toString(),
           width: 1200,
-          height: 630,
-        },
-      ],
-    },
-  };
+          height: 630
+        }
+      ]
+    }
+  }
 }
 
 export default async function LocaleLayout({
   children,
-  params,
+  params
 }: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
 }>) {
-  const { locale } = await params;
+  const { locale } = await params
   if (!hasLocale(routing.locales, locale)) {
-    notFound();
+    notFound()
   }
 
   return (
@@ -95,9 +95,7 @@ export default async function LocaleLayout({
       <Script id="consent-default" strategy="beforeInteractive">
         {CONSENT_DEFAULT_SCRIPT}
       </Script>
-      <GoogleTagManager
-        gtmId={process.env.NEXT_PUBLIC_GTM_CONTAINER_ID ?? ""}
-      />
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_CONTAINER_ID ?? ''} />
       <body className="antialiased">
         <ThemeProvider
           attribute="class"
@@ -107,7 +105,7 @@ export default async function LocaleLayout({
         >
           <NextIntlClientProvider>
             <CookieConsentProvider>
-              <main className="min-h-screen flex flex-col mx-auto">
+              <main className="mx-auto flex min-h-screen flex-col">
                 <Navbar />
                 {children}
               </main>
@@ -120,5 +118,5 @@ export default async function LocaleLayout({
         <SpeedInsights />
       </body>
     </html>
-  );
+  )
 }
