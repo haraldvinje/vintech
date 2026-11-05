@@ -10,8 +10,8 @@ This guide will help you set up the development environment, even if you're new 
 
 This project uses:
 
-- **Bun**: A fast JavaScript runtime and package manager
-- **asdf**: A tool version manager to ensure we all use the same version of Bun
+- **pnpm**: Package manager (Node.js 26)
+- **asdf**: A tool version manager to ensure we all use the same versions of Node.js and pnpm
 
 ### Step 1: Install asdf
 
@@ -39,35 +39,26 @@ source ~/.bashrc
 
 For other operating systems or shell configurations, see [asdf Installation](https://asdf-vm.com/guide/getting-started.html).
 
-### Step 2: Install Bun with asdf
+### Step 2: Install Node.js and pnpm with asdf
 
 ```bash
-# Add the bun plugin to asdf
-asdf plugin add bun
+asdf plugin add nodejs
+asdf plugin add pnpm
 
-# Install the correct version of bun (specified in .tool-versions)
-asdf install bun <version-number>
-
-# e.g
-asdf install bun 1.2.16
-
-# Verify that bun is installed correctly
-bun --version
+# Installs the versions pinned in .tool-versions
+asdf install
 ```
 
 ### Step 3: Set up the project
 
 ```bash
-# Clone the repository (if you haven't already)
 git clone <repository-url>
 cd vintech
-
-# Install project dependencies
-bun install
-
-# Start the development server
-bun dev
+pnpm install
+pnpm dev
 ```
+
+Before calling a change done, run `pnpm verify` (format check, lint, typecheck, tests, build).
 
 ### Step 4: View the website
 
@@ -85,16 +76,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the w
 
 ```bash
 # Start development server
-bun dev
+pnpm dev
 
 # Build for production
-bun run build
+pnpm build
 
 # Run linting
-bun run lint
+pnpm lint
 
 # Run all checks (format, lint, build) before pushing; CI runs the same
-bun run verify
+pnpm verify
 ```
 
 ## Need Help?
