@@ -1,108 +1,57 @@
-import js from "@eslint/js";
-import nextPlugin from "@next/eslint-plugin-next";
-import reactPlugin from "eslint-plugin-react";
-import reactHooksPlugin from "eslint-plugin-react-hooks";
-import importPlugin from "eslint-plugin-import";
-import typescriptPlugin from "@typescript-eslint/eslint-plugin";
-import typescriptParser from "@typescript-eslint/parser";
+import js from '@eslint/js'
+import nextPlugin from '@next/eslint-plugin-next'
+import importX from 'eslint-plugin-import-x'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import hooksPlugin from 'eslint-plugin-react-hooks'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
-export default [
+const eslintConfig = [
+  { ignores: ['.next/', 'out/', 'build/', 'coverage/', 'public/', 'next-env.d.ts'] },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  jsxA11y.flatConfigs.recommended,
   {
-    ignores: [
-      "node_modules/**",
-      ".next/**",
-      "out/**",
-      "build/**",
-      "next-env.d.ts",
-      "*.config.js",
-      "*.config.mjs",
-      "*.config.ts",
-    ],
-  },
-  {
-    files: ["**/*.{js,jsx,ts,tsx}"],
+    files: ['**/*.{js,jsx,mjs,cjs,ts,tsx,mts}'],
+    plugins: {
+      '@next/next': nextPlugin,
+      'react-hooks': hooksPlugin,
+      'import-x': importX
+    },
     languageOptions: {
-      parser: typescriptParser,
-      ecmaVersion: "latest",
-      sourceType: "module",
-      globals: {
-        // Browser globals
-        window: "readonly",
-        document: "readonly",
-        localStorage: "readonly",
-        sessionStorage: "readonly",
-        console: "readonly",
-        setTimeout: "readonly",
-        clearTimeout: "readonly",
-        setInterval: "readonly",
-        clearInterval: "readonly",
-        fetch: "readonly",
-        URL: "readonly",
-        URLSearchParams: "readonly",
-        FormData: "readonly",
-        HTMLFormElement: "readonly",
-        HTMLAnchorElement: "readonly",
-        Event: "readonly",
-        CustomEvent: "readonly",
-        // Node.js globals
-        process: "readonly",
-        Buffer: "readonly",
-        // React globals
-        React: "readonly",
-        JSX: "readonly",
-        // Analytics
-        gtag: "readonly",
-      },
       parserOptions: {
         ecmaFeatures: {
-          jsx: true,
-        },
-        project: "./tsconfig.json",
+          jsx: true
+        }
       },
-    },
-    plugins: {
-      react: reactPlugin,
-      "react-hooks": reactHooksPlugin,
-      "@next/next": nextPlugin,
-      import: importPlugin,
-      "@typescript-eslint": typescriptPlugin,
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      }
     },
     rules: {
-      ...js.configs.recommended.rules,
-      ...reactPlugin.configs.recommended.rules,
-      ...reactHooksPlugin.configs.recommended.rules,
-      ...typescriptPlugin.configs.recommended.rules,
-      // React specific
-      "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off",
-      // Import rules
-      "import/order": [
-        "warn",
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs['core-web-vitals'].rules,
+      ...hooksPlugin.configs.recommended.rules,
+      'react-hooks/incompatible-library': 'off',
+      'preserve-caught-error': 'warn',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
         {
-          groups: [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index",
-            "object",
-          ],
-        },
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_'
+        }
       ],
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        { argsIgnorePattern: "^_" },
-      ],
-      "@typescript-eslint/no-explicit-any": "warn",
-    },
-    settings: {
-      react: {
-        version: "detect",
-      },
-      "import/resolver": {
-        typescript: {},
-      },
-    },
-  },
-];
+      'import-x/order': [
+        'warn',
+        {
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object']
+        }
+      ]
+    }
+  }
+]
+
+export default eslintConfig

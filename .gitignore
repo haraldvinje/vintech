@@ -1,24 +1,20 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+node_modules/
+.pnpm-store/
 
 # testing
-/coverage
+coverage/
 
 # next.js
-/.next/
-/out/
+.next/
+out/
+next-env.d.ts
 
 # production
-/build
+build/
+
+# typescript
+*.tsbuildinfo
 
 # misc
 .DS_Store
@@ -26,19 +22,15 @@
 
 # debug
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 .pnpm-debug.log*
 
-# env files
+# env files: only the example is committed; real values live in .env.local and Vercel
 .env*
+!.env.example
 
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-# eslint
-.eslintcache
+# editor / agent local state
+.cursor/
+.claude/settings.local.json

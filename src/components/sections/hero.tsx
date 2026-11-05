@@ -1,32 +1,30 @@
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
-import harald from "@/../public/harald.png";
-import { Link } from "@/i18n/navigation";
+import Image from 'next/image'
+import { useTranslations } from 'next-intl'
+import { Button } from '@/components/ui/button'
+import harald from '@/../public/harald.png'
+import { Link } from '@/i18n/navigation'
 
 export default function Hero() {
-  const t = useTranslations("Hero");
+  const t = useTranslations('Hero')
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-background dark:bg-background">
+    <section className="bg-background dark:bg-background w-full py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-verdana">
-                {t("title")}
+              <h1 className="font-verdana text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                {t('title')}
               </h1>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                {t("description")}
-              </p>
+              <p className="text-muted-foreground max-w-[600px] md:text-xl">{t('description')}</p>
             </div>
             <div className="flex flex-col gap-2 min-[300px]:flex-row">
               <Link href="#contact">
-                <Button size="lg">{t("contact")}</Button>
+                <Button size="lg">{t('contact')}</Button>
               </Link>
               <Link href="#services">
                 <Button size="lg" variant="outline">
-                  {t("explore")}
+                  {t('explore')}
                 </Button>
               </Link>
             </div>
@@ -39,12 +37,12 @@ export default function Hero() {
                 src={harald}
                 placeholder="blur"
                 blurDataURL={harald.blurDataURL}
-                alt={t("imageAlt")}
-                title={t("imageTitle")}
+                alt={t('imageAlt')}
+                title={t('imageTitle')}
                 priority={true}
                 sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
                 style={{
-                  objectFit: "cover",
+                  objectFit: 'cover'
                 }}
               />
             </div>
@@ -52,5 +50,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  );
+  )
 }

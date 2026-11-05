@@ -16,4 +16,4 @@ export const CONSENT_DEFAULT_SCRIPT = `
       gtag('consent', 'update', { 'analytics_storage': 'granted' });
     }
   } catch (e) {}
-`;
+`

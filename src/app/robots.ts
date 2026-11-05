@@ -1,12 +1,12 @@
-import type { MetadataRoute } from "next";
+import type { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.vintech.no";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.vintech.no'
   return {
     rules: {
-      userAgent: "*",
-      allow: "/",
+      userAgent: '*',
+      allow: '/'
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
-  };
+    sitemap: `${siteUrl}/sitemap.xml`
+  }
 }

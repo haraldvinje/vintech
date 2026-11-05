@@ -1,0 +1,20 @@
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  esbuild: true
+  koffi: false
+minimumReleaseAgeExclude:
+  - '@vercel/speed-insights@2.1.0'
+  - lucide-react@1.69.0
+# Security fixes the parent packages' own ranges don't allow yet. Same major
+# only; drop each once `pnpm audit` passes without it.
+overrides:
+  ajv@>=8.0.0 <8.18.0: ^8.18.0
+  js-yaml@>=4.0.0 <4.3.2: ^4.3.2
+  minimatch@>=10.0.0 <10.2.3: ^10.2.3
+  path-to-regexp@>=6.0.0 <6.3.0: ^6.3.0
+  path-to-regexp@>=8.0.0 <8.4.0: ^8.4.0
+  smol-toml@<1.9.0: ^1.9.0
+  tar@>=7.0.0 <7.5.21: ^7.5.21
+  undici@>=5.0.0 <5.29.0: ^5.29.0
+  zod@>=4.0.0 <4.6.6: ^4.6.6

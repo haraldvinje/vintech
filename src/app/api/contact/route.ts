@@ -1,49 +1,49 @@
-import { Resend } from "resend";
-import { NextResponse } from "next/server";
-import { formatInTimeZone } from "date-fns-tz";
+import { Resend } from 'resend'
+import { NextResponse } from 'next/server'
+import { formatInTimeZone } from 'date-fns-tz'
 
 function getOrdinalSuffix(day: number): string {
-  if (day > 3 && day < 21) return "th";
+  if (day > 3 && day < 21) return 'th'
   switch (day % 10) {
     case 1:
-      return "st";
+      return 'st'
     case 2:
-      return "nd";
+      return 'nd'
     case 3:
-      return "rd";
+      return 'rd'
     default:
-      return "th";
+      return 'th'
   }
 }
 
 function escapeHtml(value: string): string {
   return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
 }
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function readField(body: Record<string, unknown>, key: string): string {
-  const value = body[key];
-  return typeof value === "string" ? value.trim() : "";
+  const value = body[key]
+  return typeof value === 'string' ? value.trim() : ''
 }
 
 export async function POST(req: Request) {
-  let body: Record<string, unknown>;
+  let body: Record<string, unknown>
   try {
-    body = await req.json();
+    body = await req.json()
   } catch {
-    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
   }
 
-  const name = readField(body, "name");
-  const email = readField(body, "email");
-  const subject = readField(body, "subject");
-  const message = readField(body, "message");
+  const name = readField(body, 'name')
+  const email = readField(body, 'email')
+  const subject = readField(body, 'subject')
+  const message = readField(body, 'message')
 
   if (
     !name ||
@@ -54,33 +54,31 @@ export async function POST(req: Request) {
     subject.length > 200 ||
     message.length > 10000
   ) {
-    return NextResponse.json({ error: "Invalid form data" }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid form data' }, { status: 400 })
   }
 
-  const safeName = escapeHtml(name);
-  const safeEmail = escapeHtml(email);
-  const safeSubject = escapeHtml(subject);
-  const safeMessage = escapeHtml(message);
-  const now = new Date();
+  const safeName = escapeHtml(name)
+  const safeEmail = escapeHtml(email)
+  const safeSubject = escapeHtml(subject)
+  const safeMessage = escapeHtml(message)
+  const now = new Date()
 
-  const osloTime = formatInTimeZone(now, "Europe/Oslo", "dd");
-  const day = parseInt(osloTime, 10);
+  const osloTime = formatInTimeZone(now, 'Europe/Oslo', 'dd')
+  const day = parseInt(osloTime, 10)
 
   const formattedDate = formatInTimeZone(
     now,
-    "Europe/Oslo",
-    `HH:mm, MMMM d'${getOrdinalSuffix(day)}' yyyy`,
-  );
+    'Europe/Oslo',
+    `HH:mm, MMMM d'${getOrdinalSuffix(day)}' yyyy`
+  )
 
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const { error } = await resend.emails.send({
-      from: "VinTech Contact Form <no-reply@vintech.no>",
-      to: "contact@vintech.no",
+      from: 'VinTech Contact Form <no-reply@vintech.no>',
+      to: 'contact@vintech.no',
       replyTo: email,
-      subject: subject
-        ? `Contact Form: ${subject}`
-        : `New message from ${name}`,
+      subject: subject ? `Contact Form: ${subject}` : `New message from ${name}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -150,7 +148,7 @@ export async function POST(req: Request) {
               <span class="label">Email:</span> <a href="mailto:${safeEmail}">${safeEmail}</a>
             </div>
             
-            ${subject ? `<div class="info-row"><span class="label">Subject:</span> ${safeSubject}</div>` : ""}
+            ${subject ? `<div class="info-row"><span class="label">Subject:</span> ${safeSubject}</div>` : ''}
             
             <div class="info-row">
               <div class="label">Message:</div>
@@ -162,19 +160,16 @@ export async function POST(req: Request) {
             </div>
           </body>
         </html>
-      `,
-    });
+      `
+    })
 
     if (error) {
-      throw error;
+      throw error
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true })
   } catch (error) {
-    console.error("Email error:", error);
-    return NextResponse.json(
-      { error: "Failed to send email" },
-      { status: 500 },
-    );
+    console.error('Email error:', error)
+    return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
   }
 }
