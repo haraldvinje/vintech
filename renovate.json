@@ -1,13 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
+  "minimumReleaseAge": "1 day",
   "packageRules": [
     {
+      "description": "Majors, devDependencies included, wait for a human; CI passing doesn't prove a breaking change is safe",
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    },
-    {
-      "matchDepTypes": ["devDependencies"],
       "automerge": true
     }
   ],
