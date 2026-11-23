@@ -1,4 +1,4 @@
-import { Brain, Cloud, Code, LucideRoute } from 'lucide-react'
+import { Bot, Cloud, Code, LucideRoute } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -25,10 +25,10 @@ export default function Services() {
       description: t('items.strategy.description')
     },
     {
-      type: 'machineLearning',
-      icon: <Brain className="text-primary h-8 w-8" />,
-      title: t('items.machineLearning.title'),
-      description: t('items.machineLearning.description')
+      type: 'aiDevelopment',
+      icon: <Bot className="text-primary h-8 w-8" />,
+      title: t('items.aiDevelopment.title'),
+      description: t('items.aiDevelopment.description')
     }
   ]
 

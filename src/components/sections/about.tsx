@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import CertificationBadges from './certification-badges'
 import { Card, CardContent } from '@/components/ui/card'
 
 export default function About() {
@@ -36,6 +37,7 @@ export default function About() {
                 <CardContent className="p-6">
                   <h3 className="mb-2 text-xl font-bold">{t('expertise.title')}</h3>
                   <p>{t('expertise.content')}</p>
+                  <CertificationBadges />
                 </CardContent>
               </Card>
             </div>
