@@ -12,7 +12,8 @@
     "prepare": "husky",
     "verify": "pnpm format:check && pnpm lint && pnpm test && pnpm build",
     "lint:fix": "eslint . --fix",
-    "test": "vitest run --coverage"
+    "test": "vitest run --coverage",
+    "e2e": "playwright test -c e2e/playwright.config.ts"
   },
   "dependencies": {
     "@next/third-parties": "16.4.6",
@@ -37,10 +38,12 @@
     "tailwind-merge": "3.7.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
     "@commitlint/cli": "21.2.4",
     "@commitlint/config-conventional": "21.2.4",
     "@eslint/js": "10.0.1",
     "@next/eslint-plugin-next": "16.4.6",
+    "@playwright/test": "1.65.1",
     "@tailwindcss/postcss": "4.3.5",
     "@types/gtag.js": "0.0.20",
     "@types/node": "26.6.6",
