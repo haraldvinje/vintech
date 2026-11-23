@@ -152,6 +152,7 @@
       "system": "System"
     },
     "CookieBanner": {
+      "close": "Lukk og bruk kun nødvendige",
       "title": "Innstillinger for informasjonskapsler",
       "description": "Vi bruker informasjonskapsler for å analysere nettstedstrafikk og tilpasse innhold. Ved å klikke på 'Godta alle', samtykker du til bruk av informasjonskapsler.",
       "essentialOnly": "Kun nødvendige",
