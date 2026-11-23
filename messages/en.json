@@ -12,7 +12,8 @@
       "observability",
       "logistics systems",
       "transport technology",
-      "FinTech integrations"
+      "FinTech integrations",
+      "AI-assisted development"
     ],
     "privacyPolicyPageTitle": "VinTech | Privacy Policy",
     "privacyPolicyPageDescription": "VinTech AS Privacy Policy. Learn how we handle your personal information."
@@ -38,7 +39,7 @@
     "description": "VinTech AS delivers high quality software solutions tailored to your business needs. VinTech is owned and operated by Harald Vinje, a senior consultant in backend, cloud, and integrations. Harald is strongest in logistics and transport (TMS, PMS, ERP), FinTech/payments, and B2B SaaS integrations—while remaining open to adjacent domains—with a focus on reliability and measurable impact.",
     "approach": {
       "title": "Approach",
-      "content": "While I am passionate about technology and strive to stay on top of the latest trends, I believe in an approach where the business objective is the main focus. I work closely with clients to understand their unique challenges and goals, ensuring that the solutions I provide are not only technically sound, but also aligned with the goals and objectives of the business."
+      "content": "While I am passionate about technology and strive to stay on top of the latest trends, I believe in an approach where the business objective is the main focus. I work closely with clients to understand their unique challenges and goals, ensuring that the solutions I provide are not only technically sound, but also aligned with the goals and objectives of the business. AI is a powerful tool that is here to stay. It can be applied to many problems, but it should not be applied to every problem, and it should never move faster than your team can keep up with."
     },
     "values": {
       "title": "Values",
@@ -46,12 +47,21 @@
     },
     "expertise": {
       "title": "Expertise",
-      "content": "While my main interest and expertise lies in backend, cloud development and software infrastructure, I have extensive experience in a wide range of technologies, frameworks and methodologies spanning all aspects of the software development lifecycle. Languages, frameworks, and tools include but are not limited to TypeScript, React, Python, Java, Kotlin, AWS, Azure and Terraform. Do not hesitate to contact for a more complete resume!"
+      "content": "While my main interest and expertise lies in backend, cloud development and software infrastructure, I have extensive experience in a wide range of technologies, frameworks and methodologies spanning all aspects of the software development lifecycle. Languages, frameworks, and tools include but are not limited to TypeScript, React, Python, Java, Kotlin, AWS, Azure and Terraform. I'm an AWS Certified Solutions Architect – Professional and AWS Certified Machine Learning – Specialty, and I work daily with AI coding agents such as Claude Code, using local models through Ollama when data can't leave your environment. Do not hesitate to contact for a more complete resume!"
     },
     "logoAlt": "VinTech Logo",
     "logoTitle": "VinTech Logo",
     "techsAlt": "Technologies",
-    "techsTitle": "Technologies"
+    "techsTitle": "Technologies",
+    "certifications": {
+      "title": "Certifications",
+      "solutionsArchitect": {
+        "alt": "AWS Certified Solutions Architect – Professional (verify on Credly, opens in a new tab)"
+      },
+      "machineLearning": {
+        "alt": "AWS Certified Machine Learning – Specialty (verify on Credly, opens in a new tab)"
+      }
+    }
   },
   "Services": {
     "title": "Services",
@@ -69,9 +79,9 @@
         "title": "IT Strategy & Workflows",
         "description": "Development of comprehensive IT strategies, implementation of efficient developer workflows, and establishment of modern DevOps practices."
       },
-      "machineLearning": {
-        "title": "Machine Learning & AI",
-        "description": "Implementation of machine learning models and AI solutions to optimize processes, enhance decision-making, and drive innovation."
+      "aiDevelopment": {
+        "title": "AI-Assisted Development",
+        "description": "Setting up AI coding agents with the guardrails that make them safe to use: clear rules, automated tests and security checks, and review points that keep humans in charge. Your team gets the speed without losing track of the code. Machine learning where it actually fits."
       }
     }
   },

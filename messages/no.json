@@ -13,7 +13,8 @@
       "observability",
       "logistikksystemer",
       "transportteknologi",
-      "FinTech-integrasjoner"
+      "FinTech-integrasjoner",
+      "KI-assistert utvikling"
     ],
     "privacyPolicyPageTitle": "VinTech | Personvernerklæring",
     "privacyPolicyPageDescription": "Les vår personvernerklæring for å forstå hvordan vi håndterer dine personopplysninger."
@@ -39,7 +40,7 @@
     "description": "VinTech AS leverer programvareløsninger av høy kvalitet tilpasset din bedrifts behov, og står sterkest innen logistikk og transport (TMS, PMS, ERP), FinTech/betaling og B2B SaaS-integrasjoner, men er åpen for nærliggende domener – med fokus på driftssikkerhet og målbar effekt.",
     "approach": {
       "title": "Tilnærming",
-      "content": "Selv om jeg brenner for teknologi og streber etter å holde meg oppdatert på de nyeste trendene, tror jeg på en tilnærming der forretningsmålet er hovedfokus. Jeg jobber tett med kunder for å forstå deres unike utfordringer og mål, og sikrer at løsningene jeg leverer ikke bare er teknisk solide, men også i tråd med virksomhetens mål og ambisjoner."
+      "content": "Selv om jeg brenner for teknologi og streber etter å holde meg oppdatert på de nyeste trendene, tror jeg på en tilnærming der forretningsmålet er hovedfokus. Jeg jobber tett med kunder for å forstå deres unike utfordringer og mål, og sikrer at løsningene jeg leverer ikke bare er teknisk solide, men også i tråd med virksomhetens mål og ambisjoner. KI er et kraftig verktøy som har kommet for å bli. Det kan brukes på mange problemer, men bør ikke brukes på alle, og det bør aldri gå fortere enn teamet ditt klarer å henge med på."
     },
     "values": {
       "title": "Verdier",
@@ -47,12 +48,21 @@
     },
     "expertise": {
       "title": "Kompetanse",
-      "content": "Min hovedinteresse og ekspertise ligger i backend, skyutvikling og programvareinfrastruktur, men jeg har omfattende erfaring med et bredt spekter av teknologier, rammeverk og metodikker som spenner over alle aspekter av programvareutvikling. Språk, rammeverk og verktøy inkluderer, men er ikke begrenset til, TypeScript, React, Python, Java, Kotlin, AWS, Azure og Terraform. Ikke nøl med å ta kontakt for en mer komplett CV!"
+      "content": "Min hovedinteresse og ekspertise ligger i backend, skyutvikling og programvareinfrastruktur, men jeg har omfattende erfaring med et bredt spekter av teknologier, rammeverk og metodikker som spenner over alle aspekter av programvareutvikling. Språk, rammeverk og verktøy inkluderer, men er ikke begrenset til, TypeScript, React, Python, Java, Kotlin, AWS, Azure og Terraform. Jeg er AWS Certified Solutions Architect – Professional og AWS Certified Machine Learning – Specialty, og jobber daglig med KI-kodeagenter som Claude Code, med lokale modeller via Ollama når data ikke kan forlate miljøet ditt. Ikke nøl med å ta kontakt for en mer komplett CV!"
     },
     "logoAlt": "VinTech Logo",
     "logoTitle": "VinTech Logo",
     "techsAlt": "Teknologier",
-    "techsTitle": "Teknologier"
+    "techsTitle": "Teknologier",
+    "certifications": {
+      "title": "Sertifiseringer",
+      "solutionsArchitect": {
+        "alt": "AWS Certified Solutions Architect – Professional (bekreft på Credly, åpnes i ny fane)"
+      },
+      "machineLearning": {
+        "alt": "AWS Certified Machine Learning – Specialty (bekreft på Credly, åpnes i ny fane)"
+      }
+    }
   },
   "Services": {
     "title": "Tjenester",
@@ -70,9 +80,9 @@
         "title": "IT-strategi & Arbeidsflyt",
         "description": "Utvikling av omfattende IT-strategier, implementering av effektive utviklerrutiner, og etablering av moderne DevOps-praksis."
       },
-      "machineLearning": {
-        "title": "Maskinlæring & AI",
-        "description": "Implementering av maskinlæringsmodeller og AI-løsninger for å optimalisere prosesser, forbedre beslutningstaking og drive innovasjon."
+      "aiDevelopment": {
+        "title": "KI-assistert utvikling",
+        "description": "Oppsett av KI-kodeagenter med rammene som gjør dem trygge å bruke: tydelige regler, automatiserte tester og sikkerhetssjekker, og kontrollpunkter som holder mennesker i førersetet. Teamet ditt får farten uten å miste oversikten over koden. Maskinlæring der det faktisk passer."
       }
     }
   },
