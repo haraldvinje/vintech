@@ -77,10 +77,15 @@ function CookieBanner() {
   const { acceptAll, essentialOnly } = useCookieConsent()
 
   return (
-    <div className="bg-background fixed right-0 bottom-0 left-0 z-50 border-t p-4 shadow-lg">
+    <section
+      aria-labelledby="cookie-banner-title"
+      className="bg-background fixed right-0 bottom-0 left-0 z-50 border-t p-4 shadow-lg"
+    >
       <div className="container mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
         <div className="flex-1">
-          <h3 className="mb-2 font-bold">{t('title')}</h3>
+          <h2 id="cookie-banner-title" className="mb-2 font-bold">
+            {t('title')}
+          </h2>
           <p className="text-muted-foreground text-sm">{t('description')}</p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -88,12 +93,18 @@ function CookieBanner() {
           <Button variant="outline" onClick={essentialOnly}>
             {t('essentialOnly')}
           </Button>
-          <Button variant="ghost" size="icon" onClick={essentialOnly} className="md:hidden">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={essentialOnly}
+            className="md:hidden"
+            aria-label={t('close')}
+          >
             <X className="h-4 w-4" />
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

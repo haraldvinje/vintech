@@ -151,6 +151,7 @@
       "system": "System"
     },
     "CookieBanner": {
+      "close": "Close and use essential only",
       "title": "Cookie Preferences",
       "description": "We use cookies to enhance your browsing experience and personalize content. By clicking 'Accept all', you consent to our use of cookies.",
       "essentialOnly": "Essential Only",

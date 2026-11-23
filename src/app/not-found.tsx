@@ -6,6 +6,9 @@ import { Button } from '@/components/ui/button'
 export default function NotFound() {
   return (
     <html suppressHydrationWarning lang="no">
+      <head>
+        <title>404 – Siden finnes ikke | VinTech</title>
+      </head>
       <body>
         <main className="flex min-h-screen flex-col items-center justify-center gap-6 p-4">
           <div className="space-y-4 text-center">
