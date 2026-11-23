@@ -5,6 +5,9 @@ on:
     branches: [master]
   pull_request:
 
+permissions:
+  contents: read
+
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -15,6 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
       - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
 
@@ -23,8 +29,39 @@ jobs:
           node-version-file: .tool-versions
           cache: pnpm
 
+      - name: Scan for secrets
+        env:
+          VERSION: 8.30.1
+          SHA256: 551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb
+        run: |
+          archive="gitleaks_${VERSION}_linux_x64.tar.gz"
+          curl -fsSLO "https://github.com/gitleaks/gitleaks/releases/download/v${VERSION}/${archive}"
+          echo "$SHA256  $archive" | sha256sum -c -
+          tar -xzf "$archive" gitleaks
+          ./gitleaks git --redact --no-banner .
+          rm gitleaks "$archive"
+
+      - name: Lint workflows
+        env:
+          VERSION: 1.7.12
+          SHA256: 8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          archive="actionlint_${VERSION}_linux_amd64.tar.gz"
+          curl -fsSLO "https://github.com/rhysd/actionlint/releases/download/v${VERSION}/${archive}"
+          echo "$SHA256  $archive" | sha256sum -c -
+          tar -xzf "$archive" actionlint
+          ./actionlint
+          rm actionlint "$archive"
+          pipx run zizmor==1.32.0 --format github .github/workflows
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      # Dev-only advisories (the Vercel CLI's tree) never reach the deployed
+      # site, and their fixes need major bumps.
+      - name: Audit production dependencies
+        run: pnpm audit --prod --audit-level high
 
       - name: Verify
         run: pnpm run verify
