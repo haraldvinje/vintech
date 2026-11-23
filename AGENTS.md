@@ -90,6 +90,19 @@ keyboard-operability for anything interactive.
 
 # This repo
 
+## Checks
+
+- After `pnpm verify`, run `pnpm e2e`. It runs Playwright against the
+  production build that `verify` just made, scanning every page with axe in
+  light and dark theme on desktop and phone, plus keyboard-only checks. A
+  new page goes in the `pages` list in `e2e/smoke.e2e.ts`. Fix axe
+  violations in the component; never disable a rule.
+- `src/app/api/contact/route.ts` is the only server code that handles
+  untrusted input and must stay at 100% coverage (`vitest.config.mts`).
+- `pnpm lint` includes knip. Unused exports in `src/components/ui/` are
+  ignored because shadcn generates those files; everywhere else, delete
+  what knip flags.
+
 ## Secrets
 
 - `RESEND_API_KEY` (contact form) is the only secret. It lives in the Vercel
